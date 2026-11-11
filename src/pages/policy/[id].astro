@@ -27,9 +27,38 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
           <Image src={policy.data.photo} alt={policy.data.photoAlt ?? ''} widths={[640, 1024, 1408]} sizes="(max-width: 44rem) 100vw, 44rem" loading="eager" />
         </figure>
       )}
+      {policy.data.stats.length > 0 && (
+        <section class="stats-block" aria-labelledby="stats-h">
+          <h2 id="stats-h" class="stats-h">香川県の現状</h2>
+          <ul class="stats">
+            {policy.data.stats.map((s) => (
+              <li class="stat">
+                <span class="stat-label">{s.label}</span>
+                <span class="stat-value">{s.value}{s.unit && <span class="stat-unit">{s.unit}</span>}</span>
+                {s.detail && <span class="stat-detail">{s.detail}</span>}
+                <a class="stat-src" href={`#src-${s.source}`} aria-label={`出典 ${s.source}`}>※{s.source}</a>
+              </li>
+            ))}
+          </ul>
+          {policy.data.context && <p class="stats-context">{policy.data.context}</p>}
+        </section>
+      )}
+
+      {policy.data.stats.length > 0 && <h2 class="pledge-h">十河 陽之助の取り組み</h2>}
       <div class="prose prose-large">
         <Content />
       </div>
+
+      {policy.data.sources.length > 0 && (
+        <section class="sources" aria-labelledby="src-h">
+          <h2 id="src-h">出典</h2>
+          <ol>
+            {policy.data.sources.map((s, i) => (
+              <li id={`src-${i + 1}`}>{s.org}「<a href={s.url} rel="noopener">{s.title}</a>」</li>
+            ))}
+          </ol>
+        </section>
+      )}
 
       {related.length > 0 && (
         <div style="margin-top:3.5rem">

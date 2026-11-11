@@ -14,7 +14,16 @@ const rows = await Promise.all(policies.map(async (p) => ({ p, Content: (await r
           <h3 class="policy-row-title"><a href={link(`/policy/${p.id}/`)}>{p.data.title}</a></h3>
           <p class="policy-row-lead">{p.data.lead}</p>
         </div>
-        <div class="policy-row-text"><Content /></div>
+        <div class="policy-row-text">
+          {p.data.stats[0] && (
+            <p class="policy-row-stat">
+              <span class="policy-row-stat-label">{p.data.stats[0].label}</span>
+              <strong>{p.data.stats[0].value}<small>{p.data.stats[0].unit}</small></strong>
+            </p>
+          )}
+          <Content />
+          <p class="policy-row-more"><a href={link(`/policy/${p.id}/`)}>{p.data.stats.length > 0 ? 'データと取り組みを詳しく見る' : '詳しく見る'} →</a></p>
+        </div>
       </div>
       {p.data.photo && (
         <a class="policy-row-photo" href={link(`/policy/${p.id}/`)} tabindex="-1" aria-hidden="true">

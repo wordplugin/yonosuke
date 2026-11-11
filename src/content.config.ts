@@ -14,6 +14,22 @@ const policies = defineCollection({
       photoAlt: z.string().optional(),
       /** 写真を枠に合わせて切るときに、どこを残すか(CSS の object-position。人物の位置に合わせる) */
       photoPosition: z.string().default('50% 25%'),
+      /** 「香川県の現状」に出す統計。source は sources の何番目か(1 から数える) */
+      stats: z
+        .array(
+          z.object({
+            value: z.string(),
+            unit: z.string().optional(),
+            label: z.string(),
+            detail: z.string().optional(),
+            source: z.number(),
+          }),
+        )
+        .default([]),
+      /** 統計を受けた現状の説明文 */
+      context: z.string().optional(),
+      /** 統計の出典。公的機関の一次資料に限る */
+      sources: z.array(z.object({ title: z.string(), org: z.string(), url: z.string().url() })).default([]),
     }),
 });
 

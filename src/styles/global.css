@@ -326,3 +326,28 @@ p:last-child { margin-bottom: 0; }
 .role-title { flex: none; font-weight: 800; color: var(--indigo); font-size: 1.0625rem; }
 .section-alt .roles li { border-bottom-color: rgb(18 33 63 / 0.15); }
 @media (max-width: 40rem) { .roles li { flex-direction: column; gap: 0.1rem; } }
+
+/* 政策ページ:香川県の現状(統計) */
+.stats-block { margin: 0 0 3rem; }
+.stats-h, .pledge-h { font-size: 1.5rem; display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; }
+.stats-h::before, .pledge-h::before { content: ""; width: 0.5rem; height: 1.6rem; background: var(--indigo); }
+.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr)); gap: 0.75rem; }
+.stat { position: relative; display: flex; flex-direction: column; gap: 0.25rem; padding: 1.25rem 1.25rem 1.4rem; background: var(--white); border: 2px solid var(--indigo); border-radius: 0.25rem; }
+.stat-label { font-size: 0.9375rem; font-weight: 700; line-height: 1.5; padding-right: 2rem; }
+.stat-value { font-size: clamp(2.25rem, 6vw, 3rem); font-weight: 800; line-height: 1.15; color: var(--indigo); letter-spacing: 0; font-feature-settings: "tnum"; }
+.stat-unit { font-size: 0.4em; margin-left: 0.15em; color: var(--ink); }
+.stat-detail { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.6; }
+.stat-src { position: absolute; top: 0.9rem; right: 1rem; font-size: 0.75rem; color: var(--ink-soft); text-decoration: none; }
+.stats-context { margin-top: 1.25rem; font-size: 1.0625rem; line-height: 1.95; }
+.sources { margin-top: 3rem; padding: 1.25rem 1.5rem; background: var(--paper-deep); border-radius: 0.25rem; font-size: 0.875rem; line-height: 1.8; }
+.sources h2 { font-size: 0.9375rem; margin-bottom: 0.5rem; }
+.sources ol { margin: 0; padding-left: 1.4em; }
+.sources li { margin-bottom: 0.3rem; }
+.sources li:target { background: var(--gold-bright); }
+
+/* トップ:政策の行に添える数字 */
+.policy-row-stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.9rem; margin: 0 0 0.9rem; padding: 0.6rem 0.9rem; background: var(--paper-deep); border-left: 4px solid var(--gold-bright); }
+.policy-row-stat-label { font-size: 0.875rem; font-weight: 700; }
+.policy-row-stat strong { font-size: 1.75rem; line-height: 1.2; color: var(--indigo); font-weight: 800; }
+.policy-row-stat small { font-size: 0.5em; margin-left: 0.15em; color: var(--ink); }
+.policy-row-more { margin-top: 0.6rem; font-size: 0.9375rem; font-weight: 700; }
