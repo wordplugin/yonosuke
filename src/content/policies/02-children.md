@@ -3,6 +3,8 @@ order: 2
 numeral: 二
 title: 子育て・教育
 lead: 子どもたちの可能性を広げる
+photo: ../../assets/photos/lesson-screen.jpg
+photoAlt: 寺を訪れた子どもたちに、映像を使って話す十河 陽之助
 tag: children
 ---
 

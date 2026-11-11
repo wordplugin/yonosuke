@@ -1,5 +1,6 @@
 ---
 import { link } from '../../config';
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
@@ -21,6 +22,11 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
   <PageHead title={policy.data.title} eyebrow={`五つの柱 ${policy.data.numeral}`} lead={policy.data.lead} crumbs={[{ href: '/policy/', label: '政策' }]} />
   <section class="section">
     <div class="wrap narrow">
+      {policy.data.photo && (
+        <figure class="figure" style="margin-top:0">
+          <Image src={policy.data.photo} alt={policy.data.photoAlt ?? ''} widths={[640, 1024, 1408]} sizes="(max-width: 44rem) 100vw, 44rem" loading="eager" />
+        </figure>
+      )}
       <div class="prose prose-large">
         <Content />
       </div>

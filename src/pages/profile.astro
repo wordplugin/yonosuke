@@ -3,16 +3,20 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import { site } from '../config';
-import portrait from '../assets/photos/portrait-temple-standing.jpg';
+import portrait from '../assets/photos/portrait-robe.jpg';
+import standing from '../assets/photos/portrait-temple-standing.jpg';
 import ceremony from '../assets/photos/ceremony-seated.jpg';
 import talk from '../assets/photos/talk-temple-smile.jpg';
+import smile from '../assets/photos/smile-shirt.jpg';
+import speech from '../assets/photos/speech-mic.jpg';
+import lesson from '../assets/photos/lesson-screen.jpg';
 ---
 <Base title="プロフィール" description="十河 陽之助(そごう ようのすけ)のプロフィール。僧侶、医療・介護・福祉の事業者、3人の子の父。">
   <PageHead title="プロフィール" eyebrow="人となり" />
   <section class="section">
     <div class="wrap profile-top">
       <div class="profile-photo">
-        <Image src={portrait} alt="法衣姿で微笑む十河 陽之助" widths={[400, 640, 1081]} sizes="(max-width: 48rem) 18rem, 20rem" />
+        <Image src={portrait} alt="法衣姿の十河 陽之助" widths={[400, 640, 905]} sizes="(max-width: 48rem) 18rem, 20rem" />
       </div>
       <div>
         <p class="profile-kana">{site.nameKana}</p>
@@ -29,7 +33,12 @@ import talk from '../assets/photos/talk-temple-smile.jpg';
   </section>
 
   <section class="section section-alt">
-    <div class="wrap narrow">
+    <div class="wrap history">
+      <div class="history-photos">
+        <Image src={smile} alt="机を囲んで笑顔で話し合う十河 陽之助" widths={[400, 808]} sizes="(max-width: 52rem) 50vw, 18rem" />
+        <Image src={speech} alt="教室でマイクを手に話す十河 陽之助" widths={[400, 800]} sizes="(max-width: 52rem) 50vw, 18rem" />
+      </div>
+      <div>
       <div class="section-head">
         <p class="eyebrow">歩み</p>
         <h2>これまでの活動</h2>
@@ -40,6 +49,7 @@ import talk from '../assets/photos/talk-temple-smile.jpg';
         <li><span class="timeline-year">2016年</span>「四国遍路の心でつなぐ防災教育研究会」を大学や防災の専門家とともに立ち上げ、会長に。寺に残る災害の歴史を学ぶ催しや公開シンポジウムを開く。</li>
         <li><span class="timeline-year">2018年</span>外国からのお遍路さんのために、空き店舗を活用した遍路宿づくりを大学生とともに進める。</li>
       </ol>
+      </div>
     </div>
   </section>
 
@@ -51,8 +61,10 @@ import talk from '../assets/photos/talk-temple-smile.jpg';
     </div>
     <div class="wrap" style="margin-top:2.5rem">
       <div class="photo-grid">
+        <Image src={standing} alt="寺で法衣姿で微笑む様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
         <Image src={talk} alt="寺で地域の皆さまに話す様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
         <Image src={ceremony} alt="屋外の法要に臨む様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
+        <Image src={lesson} alt="寺を訪れた子どもたちに話す様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
       </div>
     </div>
   </section>

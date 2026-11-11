@@ -1,0 +1,24 @@
+---
+/** 活動の様子を写真で見せる帯。1 枚目が大きく表示される */
+import { Image } from 'astro:assets';
+import smile from '../assets/photos/smile-shirt.jpg';
+import lesson from '../assets/photos/lesson-screen.jpg';
+import speech from '../assets/photos/speech-mic.jpg';
+import donation from '../assets/photos/donation-speech.jpg';
+import ceremony from '../assets/photos/ceremony-seated.jpg';
+
+const photos = [
+  { src: smile, alt: '机を囲んで笑顔で話し合う十河 陽之助' },
+  { src: lesson, alt: '寺を訪れた子どもたちに、映像を使って話す様子' },
+  { src: speech, alt: '教室でマイクを手に話す様子' },
+  { src: donation, alt: '書籍の贈呈の場で挨拶する様子' },
+  { src: ceremony, alt: '屋外の法要に臨む様子' },
+];
+---
+<section class="gallery" aria-label="活動の様子">
+  {photos.map((p, i) => (
+    <div class:list={['gallery-item', { 'gallery-main': i === 0 }]}>
+      <Image src={p.src} alt={p.alt} widths={[480, 800, 1200]} sizes={i === 0 ? '(max-width: 52rem) 100vw, 34vw' : '(max-width: 52rem) 50vw, 33vw'} />
+    </div>
+  ))}
+</section>

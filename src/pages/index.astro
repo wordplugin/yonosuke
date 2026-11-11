@@ -7,8 +7,9 @@ import PostList from '../components/PostList.astro';
 import ScheduleList from '../components/ScheduleList.astro';
 import { site, formatDate, link } from '../config';
 import { getPosts } from '../lib';
-import heroPhoto from '../assets/photos/portrait-temple-standing.jpg';
+import heroPhoto from '../assets/photos/portrait-suit-smile.jpg';
 import introPhoto from '../assets/photos/talk-temple-smile.jpg';
+import Gallery from '../components/Gallery.astro';
 
 const posts = (await getPosts()).slice(0, 3);
 const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order);
@@ -31,7 +32,7 @@ const e = site.election;
         </div>
       </div>
       <div class="hero-photo">
-        <Image src={heroPhoto} alt="法衣姿で微笑む十河 陽之助" widths={[480, 800, 1081]} sizes="(max-width: 52rem) 100vw, 46vw" loading="eager" fetchpriority="high" />
+        <Image src={heroPhoto} alt="スーツ姿で微笑む十河 陽之助" widths={[480, 720, 905]} sizes="(max-width: 52rem) 100vw, 46vw" loading="eager" fetchpriority="high" />
       </div>
     </div>
     <ol class="hero-pillars">
@@ -67,6 +68,8 @@ const e = site.election;
       <PolicyRows />
     </div>
   </section>
+
+  <Gallery />
 
   <section class="section section-alt">
     <div class="wrap intro">
