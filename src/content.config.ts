@@ -12,6 +12,8 @@ const policies = defineCollection({
       tag: z.string(),
       photo: image().optional(),
       photoAlt: z.string().optional(),
+      /** 写真を枠に合わせて切るときに、どこを残すか(CSS の object-position。人物の位置に合わせる) */
+      photoPosition: z.string().default('50% 25%'),
     }),
 });
 

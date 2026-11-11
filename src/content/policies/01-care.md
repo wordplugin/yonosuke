@@ -4,6 +4,7 @@ numeral: 一
 title: 医療・介護・福祉
 lead: 住み慣れた地域で、いつまでも安心して暮らせるように
 photo: ../../assets/photos/talk-temple-smile.jpg
+photoPosition: 35% 25%
 photoAlt: 寺でご年配の皆さまに語りかける十河 陽之助
 tag: care
 ---

@@ -18,7 +18,7 @@ const rows = await Promise.all(policies.map(async (p) => ({ p, Content: (await r
       </div>
       {p.data.photo && (
         <a class="policy-row-photo" href={link(`/policy/${p.id}/`)} tabindex="-1" aria-hidden="true">
-          <Image src={p.data.photo} alt="" widths={[320, 640]} sizes="(max-width: 52rem) 100vw, 16rem" />
+          <Image src={p.data.photo} alt="" style={`object-position: ${p.data.photoPosition}`} widths={[320, 640]} sizes="(max-width: 52rem) 100vw, 16rem" />
         </a>
       )}
     </li>

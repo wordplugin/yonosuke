@@ -4,6 +4,7 @@ numeral: 三
 title: 観光
 lead: 四国遍路の魅力を地域の仕事に
 photo: ../../assets/photos/ceremony-seated.jpg
+photoPosition: 68% 45%
 photoAlt: 屋外の法要に臨む十河 陽之助
 tag: tourism
 ---
