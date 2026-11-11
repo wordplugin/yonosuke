@@ -50,6 +50,12 @@ export const site = {
     koenkai: 'https://docs.google.com/forms/d/e/1FAIpQLSe6g_Tr0nRXUNLTc-5bO9K_ZEYaDv67KCWBW174Cb0ZrXSNaQ/viewform',
   },
 
+  /**
+   * Google アナリティクス(GA4)の測定 ID。「G-」で始まる文字列を入れると計測が始まる。
+   * 空のままなら計測しない。制作中(draft)の間も計測しない。
+   */
+  analyticsId: '',
+
   /** 公式SNS。ここに載せたものだけを公式アカウントとして案内する */
   sns: [] as { label: string; url: string }[],
 };

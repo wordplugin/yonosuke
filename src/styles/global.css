@@ -479,3 +479,12 @@ p:last-child { margin-bottom: 0; }
   .hero-name .kanji { font-size: 2.75rem; }
   .bottom-nav a { font-size: 0.8125rem; }
 }
+
+/* サイトマップ */
+.sitemap, .sitemap ul { list-style: none; margin: 0; padding: 0; }
+.sitemap > li { border-bottom: 1px solid var(--line); }
+.sitemap > li > a { display: block; padding: 0.95rem 0.25rem; font-size: 1.125rem; font-weight: 800; text-decoration: none; color: var(--ink); }
+.sitemap > li > a::before { content: ""; display: inline-block; width: 0.4rem; height: 1.1rem; margin-right: 0.7rem; background: var(--indigo); border-radius: 2px; vertical-align: -0.15rem; }
+.sitemap > li > a:hover { color: var(--indigo); }
+.sitemap ul { padding: 0 0 0.9rem 1.35rem; }
+.sitemap ul a { display: block; padding: 0.4rem 0; }

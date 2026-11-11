@@ -17,7 +17,7 @@ npm run build    # dist/ に書き出し
 | 活動報告を追加する | `src/content/activity/` に Markdown を 1 つ追加(既存の記事が見本) |
 | 日程を追加する | `src/data/schedule.ts`(過ぎた予定は自動で消える) |
 | 政策の文章を直す | `src/content/policies/` |
-| 連絡先・SNS・選挙の日付・フォームのURL | `src/config.ts` |
+| 連絡先・SNS・選挙の日付・フォームのURL・アナリティクスのID | `src/config.ts` |
 | 決意文・プロフィール | `src/pages/message.astro`、`src/pages/profile.astro` |
 
 活動報告の `tags` に政策の柱(`care` `children` `tourism` `prices` `disaster`)を書くと、その柱のページに関連記事として出る。

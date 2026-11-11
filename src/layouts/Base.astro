@@ -13,6 +13,7 @@ const isCurrent = (href: string) => path.startsWith(link(href));
 const e = site.election;
 const c = site.contact;
 const hasContact = c.office || c.address || c.tel || c.email;
+const gaId = !site.draft && site.analyticsId ? site.analyticsId : '';
 const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選挙特設' }, ...nav] : nav;
 ---
 <!doctype html>
@@ -23,10 +24,21 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {site.draft && <meta name="robots" content="noindex, nofollow" />}
+    {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />}
+    <link rel="sitemap" type="application/xml" href={link('/sitemap.xml')} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
+    {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+    {gaId && (
+      <script is:inline define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    )}
     <meta name="theme-color" content="#dc3209" />
   </head>
   <body>
@@ -114,6 +126,7 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
               <li><a href={link('/contact/')}>お問い合わせ</a></li>
               <li><a href={link('/privacy/')}>プライバシーポリシー</a></li>
               <li><a href={link('/site-policy/')}>サイトポリシー</a></li>
+              <li><a href={link('/sitemap/')}>サイトマップ</a></li>
             </ul>
           </div>
         </div>

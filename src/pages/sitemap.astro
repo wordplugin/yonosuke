@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { link } from '../config';
+import { getSitemap } from '../sitemap';
+const entries = await getSitemap();
+---
+<Base title="サイトマップ" description="十河 陽之助 公式サイトの全ページの一覧。">
+  <PageHead title="サイトマップ" eyebrow="ページの一覧" />
+  <section class="section">
+    <div class="wrap narrow">
+      <ul class="sitemap">
+        {entries.filter((e) => e.path !== '/sitemap/').map((e) => (
+          <li>
+            <a href={link(e.path)}>{e.label}</a>
+            {e.children && e.children.length > 0 && (
+              <ul>
+                {e.children.map((c) => <li><a href={link(c.path)}>{c.label}</a></li>)}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
