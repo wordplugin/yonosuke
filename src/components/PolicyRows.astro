@@ -1,36 +1,37 @@
 ---
+/** トップと政策一覧に並べる五つの柱。どの行も「現状」と「取り組み」を同じ幅で並べる */
 import { link } from '../config';
-import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order);
-const rows = await Promise.all(policies.map(async (p) => ({ p, Content: (await render(p)).Content })));
+const rows = await Promise.all(policies.map(async (p) => ({ p, stat: p.data.stats[0], Content: (await render(p)).Content })));
 ---
 <ol class="policy-rows">
-  {rows.map(({ p, Content }) => (
-    <li class:list={['policy-row', { 'has-photo': p.data.photo }]}>
+  {rows.map(({ p, stat, Content }) => (
+    <li class="policy-row">
       <div class="policy-row-num" aria-hidden="true">{p.data.numeral}</div>
-      <div class="policy-row-body">
-        <div>
+      <div class="policy-row-main">
+        <div class="policy-row-head">
           <h3 class="policy-row-title"><a href={link(`/policy/${p.id}/`)}>{p.data.title}</a></h3>
           <p class="policy-row-lead">{p.data.lead}</p>
         </div>
-        <div class="policy-row-text">
-          {p.data.stats[0] && (
-            <p class="policy-row-stat">
-              <span class="policy-row-stat-label">{p.data.stats[0].label}</span>
-              <strong>{p.data.stats[0].value}<small>{p.data.stats[0].unit}</small></strong>
-              {p.data.stats[0].detail && <span class="policy-row-stat-detail">{p.data.stats[0].detail}</span>}
-            </p>
+        <div class="policy-row-cols">
+          {stat && (
+            <div class="policy-row-col">
+              <p class="mini-label">香川県の現状</p>
+              <p class="policy-row-stat">
+                <span class="policy-row-stat-label">{stat.label}</span>
+                <strong>{stat.value}<small>{stat.unit}</small></strong>
+                {stat.detail && <span class="policy-row-stat-detail">{stat.detail}</span>}
+              </p>
+            </div>
           )}
-          <Content />
-          <p class="policy-row-more"><a href={link(`/policy/${p.id}/`)}>{p.data.stats.length > 0 ? 'データと取り組みを詳しく見る' : '詳しく見る'} →</a></p>
+          <div class="policy-row-col">
+            <p class="mini-label">取り組み</p>
+            <div class="policy-row-text"><Content /></div>
+          </div>
         </div>
+        <p class="policy-row-more"><a href={link(`/policy/${p.id}/`)}>データと取り組みを詳しく見る →</a></p>
       </div>
-      {p.data.photo && (
-        <a class="policy-row-photo" href={link(`/policy/${p.id}/`)} tabindex="-1" aria-hidden="true">
-          <Image src={p.data.photo} alt="" style={`object-position: ${p.data.photoPosition}`} widths={[320, 640]} sizes="(max-width: 52rem) 100vw, 16rem" />
-        </a>
-      )}
     </li>
   ))}
 </ol>

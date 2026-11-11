@@ -1,4 +1,6 @@
 :root {
+  --radius: 0.5rem;
+  --shadow: 0 1px 3px rgb(18 33 63 / 0.08);
   /* 基調色。「陽」の字と寺の朱塗りにちなんだ朱色と、山吹の黄色。ここを変えれば全体の色が変わる */
   --indigo: #dc3209;       /* 主役の色(朱) */
   --indigo-deep: #b32500;  /* 主役の色の濃いもの */
@@ -65,7 +67,7 @@ p:last-child { margin-bottom: 0; }
 .brand-name { font-size: 1.625rem; font-weight: 800; letter-spacing: 0.1em; color: var(--indigo); }
 
 .nav-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; align-items: center; }
-.nav-list a { display: block; padding: 0.5rem 0.7rem; text-decoration: none; color: var(--ink); font-size: 0.9375rem; border-radius: 0.25rem; }
+.nav-list a { display: block; padding: 0.5rem 0.7rem; text-decoration: none; color: var(--ink); font-size: 0.9375rem; border-radius: var(--radius); }
 .nav-list a { font-weight: 700; }
 .nav-list a:hover, .nav-list a[aria-current="page"] { color: var(--indigo); background: var(--paper-deep); }
 .nav-list .nav-cta a { background: var(--indigo); color: var(--white); padding-inline: 1.2rem; margin-left: 0.5rem; border-radius: 999px; }
@@ -75,12 +77,12 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 60rem) {
   .nav-desktop { display: none; }
   .nav-mobile { display: block; }
-  .nav-mobile summary { list-style: none; cursor: pointer; padding: 0.6rem 0.9rem; border: 1px solid var(--line); border-radius: 0.25rem; font-size: 0.9375rem; user-select: none; }
+  .nav-mobile summary { list-style: none; cursor: pointer; padding: 0.6rem 0.9rem; border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.9375rem; user-select: none; }
   .nav-mobile summary::-webkit-details-marker { display: none; }
   .nav-mobile[open] summary { background: var(--paper-deep); }
   .nav-mobile .nav-list { position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; padding: 0.5rem var(--gutter) 1rem; box-shadow: 0 0.75rem 1.5rem rgb(18 33 63 / 0.12); }
   .nav-mobile .nav-list a { padding: 0.85rem 0.5rem; border-bottom: 1px solid var(--paper-deep); font-size: 1.0625rem; border-radius: 0; }
-  .nav-mobile .nav-list .nav-cta a { margin: 0.75rem 0 0; text-align: center; border-radius: 0.25rem; border: 0; }
+  .nav-mobile .nav-list .nav-cta a { margin: 0.75rem 0 0; text-align: center; border-radius: var(--radius); border: 0; }
 }
 
 /* トップ:名前を主役にした大見出し */
@@ -126,24 +128,6 @@ p:last-child { margin-bottom: 0; }
   .hero-pillars li:last-child a { border-bottom: 0; }
 }
 
-/* 政策を本文つきで並べる */
-.policy-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
-.policy-row { display: grid; grid-template-columns: 6.5rem 1fr; background: var(--white); border: 2px solid var(--indigo); border-radius: 0.25rem; overflow: hidden; }
-.section-alt .policy-row { background: var(--white); }
-.policy-row-num { display: grid; place-items: center; background: var(--indigo); color: var(--white); font-size: 3rem; font-weight: 800; line-height: 1; }
-.policy-row-body { padding: 1.5rem 1.75rem; display: grid; grid-template-columns: minmax(0, 17rem) 1fr; gap: 0.75rem 2rem; align-items: start; }
-.policy-row-title { font-size: clamp(1.5rem, 2.8vw, 1.875rem); font-weight: 800; letter-spacing: 0.04em; line-height: 1.4; margin: 0; }
-.policy-row-title a { color: var(--ink); text-decoration: none; }
-.policy-row-title a:hover { color: var(--shu); }
-.policy-row-lead { font-weight: 800; color: var(--indigo); margin: 0.4rem 0 0; line-height: 1.6; font-size: 1rem; }
-.policy-row-text { font-size: 1rem; line-height: 1.85; }
-.policy-row-text p { margin-bottom: 0.5em; }
-@media (max-width: 52rem) {
-  .policy-row { grid-template-columns: 3.5rem 1fr; }
-  .policy-row-num { font-size: 1.875rem; align-items: start; padding-top: 1.4rem; }
-  .policy-row-body { grid-template-columns: 1fr; padding: 1.25rem; }
-}
-
 /* 区切り */
 .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
 .section-alt { background: var(--paper-deep); }
@@ -173,13 +157,13 @@ p:last-child { margin-bottom: 0; }
 
 /* 決意の抜粋 */
 .intro { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
-.intro-photo img { border-radius: 0.25rem; aspect-ratio: 4 / 3; object-fit: cover; object-position: 35% 30%; width: 100%; }
+.intro-photo img { border-radius: var(--radius); aspect-ratio: 4 / 3; object-fit: cover; object-position: 35% 30%; width: 100%; }
 .intro-text .lead { font-size: clamp(1.375rem, 2.8vw, 1.75rem); font-weight: 800; line-height: 1.7; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
 @media (max-width: 48rem) { .intro { grid-template-columns: 1fr; } .intro-photo img { aspect-ratio: 4 / 3; } }
 
 /* 五つの柱 */
 .pillars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.25rem; }
-.pillar a { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1.1rem; height: 100%; padding: 1.5rem; background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--indigo); border-radius: 0.25rem; text-decoration: none; color: var(--ink); transition: border-color 0.15s, transform 0.15s; }
+.pillar a { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1.1rem; height: 100%; padding: 1.5rem; background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--indigo); border-radius: var(--radius); text-decoration: none; color: var(--ink); transition: border-color 0.15s, transform 0.15s; }
 .section-alt .pillar a { background: var(--white); }
 .pillar a:hover { border-top-color: var(--gold); transform: translateY(-2px); color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .pillar a { transition: none; } .pillar a:hover { transform: none; } }
@@ -195,12 +179,12 @@ p:last-child { margin-bottom: 0; }
 .post-title { font-size: 1.1875rem; font-weight: 700; line-height: 1.6; }
 .post-summary { grid-column: 2; font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.75; }
 @media (max-width: 40rem) { .post-row a { grid-template-columns: 1fr; } .post-summary { grid-column: 1; } }
-.empty { padding: 1.5rem; background: var(--white); border: 1px dashed var(--line); border-radius: 0.25rem; color: var(--ink-soft); }
+.empty { padding: 1.5rem; background: var(--white); border: 1px dashed var(--line); border-radius: var(--radius); color: var(--ink-soft); }
 .section-alt .empty { background: var(--white); }
 
 /* 日程 */
 .schedule { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
-.schedule li { display: grid; grid-template-columns: 9rem 1fr; gap: 0.25rem 1.5rem; padding: 1.1rem 1.25rem; background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--indigo); border-radius: 0.25rem; }
+.schedule li { display: grid; grid-template-columns: 9rem 1fr; gap: 0.25rem 1.5rem; padding: 1.1rem 1.25rem; background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--indigo); border-radius: var(--radius); }
 .schedule-date { font-family: var(--serif); font-weight: 600; font-size: 1.125rem; }
 .schedule-time { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.875rem; color: var(--ink-soft); }
 .schedule-title { font-weight: 600; }
@@ -233,11 +217,11 @@ p:last-child { margin-bottom: 0; }
 .signature { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 0.2em; text-align: right; margin-top: 2.5rem; }
 .pullquote { font-weight: 800; color: var(--indigo); font-size: clamp(1.375rem, 3vw, 1.75rem); line-height: 1.7; letter-spacing: 0.04em; border-left: 6px solid var(--gold-bright); padding: 0.25rem 0 0.25rem 1.25rem; margin: 2.5rem 0; }
 .figure { margin: 2.5rem 0; }
-.figure img { border-radius: 0.25rem; width: 100%; }
+.figure img { border-radius: var(--radius); width: 100%; }
 
 /* プロフィール */
 .profile-top { display: grid; grid-template-columns: minmax(0, 20rem) 1fr; gap: clamp(1.5rem, 5vw, 3.5rem); align-items: start; }
-.profile-top img { border-radius: 0.25rem; width: 100%; }
+.profile-top img { border-radius: var(--radius); width: 100%; }
 @media (max-width: 48rem) { .profile-top { grid-template-columns: 1fr; } .profile-top .profile-photo { max-width: 18rem; } }
 .profile-name { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: 0.1em; line-height: 1.3; }
 .profile-kana { font-size: 0.875rem; letter-spacing: 0.3em; color: var(--ink-soft); }
@@ -249,7 +233,7 @@ p:last-child { margin-bottom: 0; }
 .timeline li::before { content: ""; position: absolute; left: -0.4375rem; top: 0.6rem; width: 0.8125rem; height: 0.8125rem; border-radius: 50%; background: var(--indigo); }
 .timeline-year { font-family: var(--serif); font-weight: 600; color: var(--indigo); display: block; }
 .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
-.photo-grid img { border-radius: 0.25rem; aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+.photo-grid img { border-radius: var(--radius); aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 
 /* 政策詳細 */
 .policy-head { display: flex; gap: 1.25rem; align-items: baseline; }
@@ -258,10 +242,10 @@ p:last-child { margin-bottom: 0; }
 
 /* 応援・カード */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
-.card { background: var(--white); border: 1px solid var(--line); border-radius: 0.25rem; padding: 1.75rem; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.75rem; }
 .card h2, .card h3 { font-size: 1.3125rem; margin-bottom: 0.75rem; }
 .card ul { padding-left: 1.3em; margin: 0 0 1rem; }
-.notice { background: var(--paper-deep); border-left: 4px solid var(--indigo); padding: 1rem 1.25rem; border-radius: 0 0.25rem 0.25rem 0; font-size: 0.9375rem; line-height: 1.8; }
+.notice { background: var(--paper-deep); border-left: 4px solid var(--indigo); padding: 1rem 1.25rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.9375rem; line-height: 1.8; }
 .notice strong { display: block; margin-bottom: 0.25rem; }
 
 /* フッター */
@@ -288,20 +272,10 @@ p:last-child { margin-bottom: 0; }
   .gallery-main { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 4 / 3.4; }
 }
 
-/* 政策の行に添える写真 */
-.policy-row.has-photo { grid-template-columns: 6.5rem 1fr 16rem; }
-.policy-row.has-photo .policy-row-body { grid-template-columns: 1fr; gap: 0.9rem; }
-.policy-row-photo { display: block; position: relative; min-height: 11rem; }
-.policy-row-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 25%; }
-@media (max-width: 52rem) {
-  .policy-row.has-photo { grid-template-columns: 3.5rem 1fr; }
-  .policy-row-photo { grid-column: 1 / -1; min-height: 0; aspect-ratio: 16 / 9; order: -1; }
-}
-
 /* プロフィール:歩みの横に写真 */
 .history { display: grid; grid-template-columns: 18rem 1fr; gap: clamp(1.5rem, 5vw, 3.5rem); align-items: start; }
 .history-photos { display: grid; gap: 0.75rem; }
-.history-photos img { width: 100%; border-radius: 0.25rem; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; }
+.history-photos img { width: 100%; border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; }
 @media (max-width: 52rem) {
   .history { grid-template-columns: 1fr; }
   .history-photos { grid-template-columns: 1fr 1fr; order: 2; }
@@ -309,12 +283,12 @@ p:last-child { margin-bottom: 0; }
 
 /* 決意文の冒頭に添える肖像 */
 .message-portrait { float: right; width: min(15rem, 42%); margin: 0.4rem 0 1rem 1.75rem; }
-.message-portrait img { width: 100%; border-radius: 0.25rem; }
+.message-portrait img { width: 100%; border-radius: var(--radius); }
 @media (max-width: 40rem) { .message-portrait { float: none; width: 60%; margin: 0 auto 1.5rem; } }
 .photo-grid img { object-position: 50% 20%; }
 
 /* 埋め込みフォーム */
-.form-embed { background: var(--white); border: 2px solid var(--indigo); border-radius: 0.25rem; overflow: hidden; }
+.form-embed { background: var(--white); border: 2px solid var(--indigo); border-radius: var(--radius); overflow: hidden; }
 .form-embed iframe { display: block; width: 100%; height: min(85vh, 60rem); min-height: 34rem; border: 0; }
 
 /* プロフィール:紹介文と役職の一覧 */
@@ -332,23 +306,83 @@ p:last-child { margin-bottom: 0; }
 .stats-h, .pledge-h { font-size: 1.5rem; display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; }
 .stats-h::before, .pledge-h::before { content: ""; width: 0.5rem; height: 1.6rem; background: var(--indigo); }
 .stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr)); gap: 0.75rem; }
-.stat { position: relative; display: flex; flex-direction: column; gap: 0.25rem; padding: 1.25rem 1.25rem 1.4rem; background: var(--white); border: 2px solid var(--indigo); border-radius: 0.25rem; }
+.stat { position: relative; display: flex; flex-direction: column; gap: 0.25rem; padding: 1.25rem 1.25rem 1.4rem; background: var(--white); border: 2px solid var(--indigo); border-radius: var(--radius); }
 .stat-label { font-size: 0.9375rem; font-weight: 700; line-height: 1.5; padding-right: 2rem; }
 .stat-value { font-size: clamp(2.25rem, 6vw, 3rem); font-weight: 800; line-height: 1.15; color: var(--indigo); letter-spacing: 0; font-feature-settings: "tnum"; }
 .stat-unit { font-size: 0.4em; margin-left: 0.15em; color: var(--ink); }
 .stat-detail { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.6; }
 .stat-src { position: absolute; top: 0.9rem; right: 1rem; font-size: 0.75rem; color: var(--ink-soft); text-decoration: none; }
 .stats-context { margin-top: 1.25rem; font-size: 1.0625rem; line-height: 1.95; }
-.sources { margin-top: 3rem; padding: 1.25rem 1.5rem; background: var(--paper-deep); border-radius: 0.25rem; font-size: 0.875rem; line-height: 1.8; }
+.sources { margin-top: 3rem; padding: 1.25rem 1.5rem; background: var(--paper-deep); border-radius: var(--radius); font-size: 0.875rem; line-height: 1.8; }
 .sources h2 { font-size: 0.9375rem; margin-bottom: 0.5rem; }
 .sources ol { margin: 0; padding-left: 1.4em; }
 .sources li { margin-bottom: 0.3rem; }
 .sources li:target { background: var(--gold-bright); }
 
-/* トップ:政策の行に添える数字 */
-.policy-row-stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.9rem; margin: 0 0 0.9rem; padding: 0.6rem 0.9rem; background: var(--paper-deep); border-left: 4px solid var(--gold-bright); }
-.policy-row-stat-label { font-size: 0.875rem; font-weight: 700; }
-.policy-row-stat strong { font-size: 1.75rem; line-height: 1.2; color: var(--indigo); font-weight: 800; }
-.policy-row-stat small { font-size: 0.5em; margin-left: 0.15em; color: var(--ink); }
-.policy-row-more { margin-top: 0.6rem; font-size: 0.9375rem; font-weight: 700; }
-.policy-row-stat-detail { flex-basis: 100%; font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.5; }
+
+/* ============================================================
+   全体の調子をそろえる決まり
+   - 箱: 白地、細い線、角丸、薄い影。赤い枠線は使わない
+   - 赤: 番号、見出しの左の棒、大事な数字、ボタンとリンクだけ
+   - 黄: マーカー、帯、数字の下地だけ
+   - 見出し: 節の見出しは「小見出し(赤)+大見出し」、本文中の見出しは左に赤い棒
+   - 本文: 読み物は 1.0625rem / 行間 1.95 にそろえる
+   ============================================================ */
+.card, .stat, .form-embed, .empty, .schedule li, .policy-row { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.empty { border-style: solid; }
+.schedule li { border-left: 1px solid var(--line); }
+.form-embed { overflow: hidden; }
+
+/* 小さなラベル(現状/取り組み など) */
+.mini-label { display: inline-block; margin: 0 0 0.6rem; padding: 0.15rem 0.7rem; border-radius: 999px; background: var(--navy); color: var(--white); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.7; }
+
+/* 五つの柱(トップと政策一覧で共通) */
+.policy-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.policy-row { display: grid; grid-template-columns: 5.5rem 1fr; overflow: hidden; }
+.policy-row-num { display: grid; place-items: center; background: var(--indigo); color: var(--white); font-size: 2.75rem; font-weight: 800; line-height: 1; }
+.policy-row-main { padding: 1.5rem 1.75rem 1.4rem; min-width: 0; }
+.policy-row-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.25rem; padding-bottom: 1rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
+.policy-row-title { font-size: clamp(1.5rem, 2.8vw, 1.875rem); font-weight: 800; letter-spacing: 0.04em; line-height: 1.4; margin: 0; }
+.policy-row-title a { color: var(--ink); text-decoration: none; }
+.policy-row-title a:hover { color: var(--indigo); }
+.policy-row-lead { font-weight: 800; color: var(--indigo); margin: 0; line-height: 1.6; font-size: 1rem; }
+.policy-row-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+.policy-row-col { min-width: 0; }
+.policy-row-stat { display: flex; flex-direction: column; gap: 0.15rem; margin: 0; padding: 0.9rem 1.1rem; background: var(--paper-deep); border-radius: var(--radius); }
+.policy-row-stat-label { font-size: 0.9375rem; font-weight: 700; line-height: 1.5; }
+.policy-row-stat strong { font-size: clamp(2rem, 4.4vw, 2.5rem); line-height: 1.2; color: var(--indigo); font-weight: 800; font-feature-settings: "tnum"; }
+.policy-row-stat small { font-size: 0.42em; margin-left: 0.15em; color: var(--ink); }
+.policy-row-stat-detail { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.6; }
+.policy-row-text { font-size: 1rem; line-height: 1.9; }
+.policy-row-text p { margin-bottom: 0.5em; }
+.policy-row-more { margin: 1.1rem 0 0; font-size: 0.9375rem; font-weight: 700; text-align: right; }
+@media (max-width: 52rem) {
+  .policy-row { grid-template-columns: 3.25rem 1fr; }
+  .policy-row-num { font-size: 1.75rem; align-items: start; padding-top: 1.5rem; }
+  .policy-row-main { padding: 1.25rem 1.1rem 1.1rem; }
+  .policy-row-cols { grid-template-columns: 1fr; gap: 1.25rem; }
+  .policy-row-more { text-align: left; }
+}
+
+/* 政策の詳細:現状と取り組みを同じ調子で */
+.stat { padding: 1.1rem 1.25rem 1.25rem; }
+.stat-value { font-size: clamp(2rem, 5vw, 2.5rem); }
+.stats-context, .prose-large p { font-size: 1.0625rem; line-height: 1.95; }
+.stats-block { margin: 0 0 3rem; }
+.pledge { margin: 0 0 3rem; }
+.pledge .prose { padding: 1.5rem 1.75rem; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.stats-h, .pledge-h, .prose h2, .sources h2 { font-size: 1.375rem; display: flex; align-items: center; gap: 0.7rem; margin: 0 0 1.1rem; padding: 0; border: 0; }
+.stats-h::before, .pledge-h::before, .prose h2::before, .sources h2::before { content: ""; flex: none; width: 0.4rem; height: 1.5rem; background: var(--indigo); border-radius: 2px; }
+.prose h2 { margin-top: 2.75rem; }
+.prose h2:first-child { margin-top: 0; }
+.sources { margin-top: 0; padding: 1.25rem 1.5rem; background: transparent; border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.875rem; line-height: 1.8; }
+.sources h2 { font-size: 1rem; margin-bottom: 0.6rem; }
+.sources h2::before { height: 1.1rem; }
+
+/* 引用・お知らせ・一覧の線も同じ太さに */
+.pullquote { border-left: 0.4rem solid var(--indigo); border-radius: 2px; padding-left: 1.1rem; }
+.notice { border-left: 0.4rem solid var(--indigo); }
+.roles { border-top: 1px solid var(--line); }
+.timeline { border-left-width: 2px; }
+.hero-rule { border-radius: 2px; }
+.page-head h1::after { border-radius: 2px; }

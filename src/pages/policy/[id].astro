@@ -44,10 +44,12 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
         </section>
       )}
 
-      {policy.data.stats.length > 0 && <h2 class="pledge-h">十河 陽之助の取り組み</h2>}
-      <div class="prose prose-large">
-        <Content />
-      </div>
+      <section class="pledge" aria-labelledby="pledge-h">
+        <h2 id="pledge-h" class="pledge-h">十河 陽之助の取り組み</h2>
+        <div class="prose prose-large">
+          <Content />
+        </div>
+      </section>
 
       {policy.data.sources.length > 0 && (
         <section class="sources" aria-labelledby="src-h">
