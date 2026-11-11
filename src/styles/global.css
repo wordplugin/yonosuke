@@ -316,3 +316,13 @@ p:last-child { margin-bottom: 0; }
 /* 埋め込みフォーム */
 .form-embed { background: var(--white); border: 2px solid var(--indigo); border-radius: 0.25rem; overflow: hidden; }
 .form-embed iframe { display: block; width: 100%; height: min(85vh, 60rem); min-height: 34rem; border: 0; }
+
+/* プロフィール:紹介文と役職の一覧 */
+.profile-lead { font-size: 1.125rem; font-weight: 700; line-height: 1.9; margin: 1.25rem 0 0; }
+.roles { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--indigo); }
+.roles li { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 0.95rem 0.25rem; border-bottom: 1px solid var(--line); background: transparent; }
+.role-org { line-height: 1.6; }
+.role-org small { display: block; font-size: 0.875rem; color: var(--ink-soft); }
+.role-title { flex: none; font-weight: 800; color: var(--indigo); font-size: 1.0625rem; }
+.section-alt .roles li { border-bottom-color: rgb(18 33 63 / 0.15); }
+@media (max-width: 40rem) { .roles li { flex-direction: column; gap: 0.1rem; } }

@@ -11,7 +11,7 @@ import smile from '../assets/photos/smile-shirt.jpg';
 import speech from '../assets/photos/speech-mic.jpg';
 import lesson from '../assets/photos/lesson-screen.jpg';
 ---
-<Base title="プロフィール" description="十河 陽之助(そごう ようのすけ)のプロフィール。僧侶、医療・介護・福祉の事業者、3人の子の父。">
+<Base title="プロフィール" description="十河 陽之助(そごう ようのすけ)のプロフィール。寺院の運営、医療・福祉事業、11年間のPTA活動、青年会議所での地域活動に携わってきました。">
   <PageHead title="プロフィール" eyebrow="人となり" />
   <section class="section">
     <div class="wrap profile-top">
@@ -21,12 +21,10 @@ import lesson from '../assets/photos/lesson-screen.jpg';
       <div>
         <p class="profile-kana">{site.nameKana}</p>
         <p class="profile-name">{site.name}</p>
+        <p class="profile-lead">寺院の運営、医療・福祉事業、11年間のPTA活動、青年会議所での地域活動など、幅広い分野に携わってきました。各分野で得た経験を、香川県の課題解決につなげたいと考えています。</p>
         <dl class="facts">
-          <dt>生まれ</dt><dd>1976年 香川県さぬき市</dd>
-          <dt>僧名</dt><dd>瑞澄(ずいちょう)</dd>
-          <dt>仕事</dt><dd>四国霊場第八十六番札所 志度寺 副住職<br />医療・介護・福祉の事業を営む</dd>
-          <dt>家族</dt><dd>3人の子の父</dd>
-          <dt>地域で</dt><dd>小学校PTA会長、高松青年会議所、四国八十八ヶ所霊場会などで活動</dd>
+          <dt>生年月日</dt><dd>1976年11月19日</dd>
+          <dt>学歴</dt><dd>香川県立高松北高校 卒業<br />高野山大学 文学部 仏教学科 卒業</dd>
         </dl>
       </div>
     </div>
@@ -39,27 +37,37 @@ import lesson from '../assets/photos/lesson-screen.jpg';
         <Image src={speech} alt="教室でマイクを手に話す十河 陽之助" widths={[400, 800]} sizes="(max-width: 52rem) 50vw, 18rem" />
       </div>
       <div>
-      <div class="section-head">
-        <p class="eyebrow">歩み</p>
-        <h2>これまでの活動</h2>
-      </div>
-      <ol class="timeline">
-        <li><span class="timeline-year">2015年</span>公益社団法人 高松青年会議所 第55代理事長。「UDONフェス'15」を開催。</li>
-        <li><span class="timeline-year">2016年</span>公益社団法人 日本青年会議所 四国地区協議会 会長。</li>
-        <li><span class="timeline-year">2016年</span>「四国遍路の心でつなぐ防災教育研究会」を大学や防災の専門家とともに立ち上げ、会長に。寺に残る災害の歴史を学ぶ催しや公開シンポジウムを開く。</li>
-        <li><span class="timeline-year">2018年</span>外国からのお遍路さんのために、空き店舗を活用した遍路宿づくりを大学生とともに進める。</li>
-      </ol>
+        <div class="section-head">
+          <p class="eyebrow">現在</p>
+          <h2>役職</h2>
+        </div>
+        <ul class="roles">
+          <li><span class="role-org">六萬寺</span><span class="role-title">住職</span></li>
+          <li><span class="role-org">四国八十八ヶ所霊場 第86番札所 志度寺</span><span class="role-title">副住職</span></li>
+          <li><span class="role-org">四国八十八ヶ所霊場 第62番札所 宝寿寺</span><span class="role-title">副住職</span></li>
+          <li><span class="role-org">一般社団法人 四国八十八ヶ所霊場会</span><span class="role-title">理事</span></li>
+          <li><span class="role-org">NPO法人 お遍路とおもてなしのネットワーク</span><span class="role-title">理事</span></li>
+          <li><span class="role-org">医療法人社団 彰志会 介護老人保健施設 ポタラの森</span><span class="role-title">理事</span></li>
+          <li><span class="role-org">香川大学附属高松小学校 しらうめ会<small>PTA活動歴11年</small></span><span class="role-title">会長</span></li>
+        </ul>
+
+        <div class="section-head" style="margin-top:3.5rem">
+          <p class="eyebrow">歩み</p>
+          <h2>主な役職歴</h2>
+        </div>
+        <ul class="roles">
+          <li><span class="role-org">公益社団法人 高松青年会議所</span><span class="role-title">理事長</span></li>
+          <li><span class="role-org">公益社団法人 日本青年会議所</span><span class="role-title">四国地区会長</span></li>
+          <li><span class="role-org">香川大学附属幼稚園高松園舎 わかうめ会</span><span class="role-title">会長</span></li>
+          <li><span class="role-org">四国遍路の心でつなぐ防災研究会</span><span class="role-title">会長</span></li>
+          <li><span class="role-org">一般社団法人 四国八十八ヶ所霊場会 青年会</span><span class="role-title">会長</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap narrow prose">
-      <h2>お接待の心を、防災と地域づくりへ</h2>
-      <p>お遍路さんに尋ねると、返ってくるのは「地元の人がお接待をしてくれて、感動した」という声です。人の優しさがあるから、1200年もの長い間お遍路さんが訪れる。その「おもてなし」の心は、災害のときに助け合う「共助」の心にも通じています。</p>
-      <p>東日本大震災をきっかけに防災に取り組み始め、遍路文化と防災を結びつける活動を続けてきました。地域のつながりこそが、人の命を守る力になると考えています。</p>
-    </div>
-    <div class="wrap" style="margin-top:2.5rem">
+    <div class="wrap">
       <div class="photo-grid">
         <Image src={standing} alt="寺で法衣姿で微笑む様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
         <Image src={talk} alt="寺で地域の皆さまに話す様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
