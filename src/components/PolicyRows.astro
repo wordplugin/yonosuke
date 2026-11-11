@@ -30,6 +30,9 @@ const rows = await Promise.all(policies.map(async (p) => ({ p, stat: p.data.stat
             <div class="policy-row-text"><Content /></div>
           </div>
         </div>
+        {p.data.experienceShort && (
+          <p class="policy-row-exp"><span class="mini-label">経験</span>{p.data.experienceShort}</p>
+        )}
         <p class="policy-row-more"><a href={link(`/policy/${p.id}/`)}>データと取り組みを詳しく見る →</a></p>
       </div>
     </li>

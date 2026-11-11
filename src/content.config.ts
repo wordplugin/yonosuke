@@ -28,6 +28,12 @@ const policies = defineCollection({
         .default([]),
       /** 統計を受けた現状の説明文 */
       context: z.string().optional(),
+      /** この政策に取り組む理由になる、本人の経験(プロフィールと原稿にもとづく) */
+      experience: z.string().optional(),
+      /** トップに出す、経験の一言 */
+      experienceShort: z.string().optional(),
+      /** この政策に関わりのある役職 */
+      roles: z.array(z.string()).default([]),
       /** 統計の出典。公的機関の一次資料に限る */
       sources: z.array(z.object({ title: z.string(), org: z.string(), url: z.string().url() })).default([]),
     }),

@@ -44,6 +44,24 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
         </section>
       )}
 
+      {policy.data.experience && (
+        <section class="experience" aria-labelledby="exp-h">
+          <h2 id="exp-h" class="pledge-h">なぜ、この政策に取り組むのか</h2>
+          <div class="experience-body">
+            <p>{policy.data.experience}</p>
+            {policy.data.roles.length > 0 && (
+              <>
+                <p class="mini-label">関わりのある役職</p>
+                <ul class="experience-roles">
+                  {policy.data.roles.map((r) => <li>{r}</li>)}
+                </ul>
+                <p class="experience-more"><a href={link('/profile/')}>プロフィールを見る →</a></p>
+              </>
+            )}
+          </div>
+        </section>
+      )}
+
       <section class="pledge" aria-labelledby="pledge-h">
         <h2 id="pledge-h" class="pledge-h">十河 陽之助の取り組み</h2>
         <div class="prose prose-large">

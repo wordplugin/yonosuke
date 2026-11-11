@@ -488,3 +488,20 @@ p:last-child { margin-bottom: 0; }
 .sitemap > li > a:hover { color: var(--indigo); }
 .sitemap ul { padding: 0 0 0.9rem 1.35rem; }
 .sitemap ul a { display: block; padding: 0.4rem 0; }
+
+/* 政策ごとの「なぜ取り組むのか」(本人の経験) */
+.experience { margin: 0 0 3rem; }
+.experience-body { padding: 1.5rem 1.75rem; background: var(--paper-deep); border-radius: var(--radius); }
+.experience-body > p:first-child { font-size: 1.0625rem; line-height: 1.95; margin-bottom: 1.25rem; }
+.experience-body .mini-label { margin-bottom: 0.5rem; }
+.experience-roles { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgb(18 33 63 / 0.15); }
+.experience-roles li { padding: 0.6rem 0.1rem; border-bottom: 1px solid rgb(18 33 63 / 0.15); font-weight: 700; font-size: 0.9375rem; line-height: 1.6; }
+.experience-more { margin: 0.9rem 0 0; font-size: 0.9375rem; font-weight: 700; text-align: right; }
+.policy-row-exp { display: flex; align-items: baseline; gap: 0.75rem; margin: 1.1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); font-weight: 700; font-size: 1rem; line-height: 1.7; }
+.policy-row-exp .mini-label { flex: none; margin: 0; background: var(--indigo); }
+@media (max-width: 52rem) {
+  .experience-body { padding: 1.1rem; }
+  .experience-body > p:first-child { line-height: 1.85; }
+  .experience-more { text-align: left; }
+  .policy-row-exp { flex-direction: column; gap: 0.35rem; margin-top: 0.9rem; padding-top: 0.9rem; font-size: 0.9375rem; }
+}
