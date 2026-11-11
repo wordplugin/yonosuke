@@ -13,7 +13,7 @@ export const site = {
   mode: 'pre' as Mode,
 
   /** true の間は「制作中」の帯を出し、検索エンジンに登録させない */
-  draft: true,
+  draft: false,
 
   name: '十河 陽之助',
   nameKana: 'そごう ようのすけ',
