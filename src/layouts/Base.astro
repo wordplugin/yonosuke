@@ -75,6 +75,13 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
       <slot />
     </main>
 
+    <nav class="bottom-nav" aria-label="よく使うメニュー">
+      <a href={link('/policy/')} aria-current={isCurrent('/policy/') ? 'page' : undefined}>政策</a>
+      <a href={link('/profile/')} aria-current={isCurrent('/profile/') ? 'page' : undefined}>プロフィール</a>
+      <a href={link('/activity/')} aria-current={isCurrent('/activity/') ? 'page' : undefined}>活動報告</a>
+      <a class="bottom-nav-cta" href={link('/koenkai/')}>後援会入会</a>
+    </nav>
+
     <footer class="site-footer">
       <div class="wrap">
         <div class="footer-grid">
