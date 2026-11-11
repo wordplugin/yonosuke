@@ -33,7 +33,8 @@ jobs:
           ORIGIN: ${{ steps.pages.outputs.origin }}
           BASE: ${{ steps.pages.outputs.base_path }}
         # 公開先の URL(独自ドメインの有無を含む)は GitHub の設定から自動で受け取る
-        run: npx astro build --site "$ORIGIN" ${BASE:+--base "$BASE"}
+        # 独自ドメインは Cloudflare 経由で常に https で配信しているので、URL は https にそろえる
+        run: npx astro build --site "${ORIGIN/http:/https:}" ${BASE:+--base "$BASE"}
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
