@@ -1,5 +1,5 @@
 ---
-import { link } from '../../config';
+import { link, site } from '../../config';
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
@@ -45,7 +45,7 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
       )}
 
       <section class="pledge" aria-labelledby="pledge-h">
-        <h2 id="pledge-h" class="pledge-h">十河 陽之助の取り組み</h2>
+        <h2 id="pledge-h" class="pledge-h">{site.displayName}の取り組み</h2>
         <div class="prose prose-large">
           <Content />
         </div>

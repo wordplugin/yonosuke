@@ -505,3 +505,32 @@ p:last-child { margin-bottom: 0; }
   .experience-more { text-align: left; }
   .policy-row-exp { flex-direction: column; gap: 0.35rem; margin-top: 0.9rem; padding-top: 0.9rem; font-size: 0.9375rem; }
 }
+
+/* ============================================================
+   名前の見せ方(ビラと同じ「そごう陽之助」)
+   白い太字に濃い朱色の縁取り。名のふりがなは黄色
+   ============================================================ */
+.hero-name { display: flex; align-items: flex-end; flex-wrap: nowrap; margin: 0; line-height: 1.05; font-weight: 900; color: var(--white); font-size: clamp(3.25rem, 7.3vw, 6.6rem); letter-spacing: 0.02em; white-space: nowrap; -webkit-text-stroke: 0.09em #9a1f00; paint-order: stroke fill; text-shadow: 0 0.07em 0 #7c1800, 0 0.12em 0.25em rgb(60 10 0 / 0.45); }
+.hero-name .sei { margin-right: 0.06em; }
+.hero-name .mei { ruby-position: over; ruby-align: space-around; }
+.hero-name rt { font-size: 0.24em; font-weight: 900; letter-spacing: 0.35em; color: var(--gold-bright); -webkit-text-stroke: 0.3em #9a1f00; paint-order: stroke fill; text-shadow: none; padding-bottom: 0.25em; }
+.hero-formal { margin: 1rem 0 0; font-size: clamp(1rem, 1.6vw, 1.25rem); font-weight: 800; letter-spacing: 0.14em; color: var(--white); }
+.hero-formal span { margin-left: 0.9em; font-size: 0.8em; font-weight: 700; letter-spacing: 0.25em; color: var(--gold-soft); }
+.hero-rule { margin-top: 1.1rem; }
+.hero-tag { margin-bottom: 1.1rem; }
+
+/* ヘッダーとフッターの名前 */
+.brand { line-height: 1.2; }
+.brand-kana { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.3em; color: var(--ink-soft); order: 2; margin-top: 0.1rem; }
+.brand-name { font-size: 1.75rem; font-weight: 900; letter-spacing: 0.03em; color: var(--indigo); line-height: 1.25; }
+.brand-name rt { font-size: 0.3em; font-weight: 800; letter-spacing: 0.3em; color: var(--ink-soft); }
+.footer-name { font-size: 1.875rem; font-weight: 900; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+.footer-formal { margin: 0 0 0.75rem; font-size: 0.875rem; letter-spacing: 0.1em; opacity: 0.85; }
+
+@media (max-width: 52rem) {
+  .hero-name { font-size: clamp(2.75rem, 14.2vw, 5rem); }
+  .hero-formal { margin-top: 0.75rem; }
+  .brand-name { font-size: 1.5rem; }
+  .brand-kana { font-size: 0.625rem; }
+}
+@media (max-width: 22.5rem) { .hero-name { font-size: 2.6rem; } }

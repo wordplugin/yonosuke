@@ -63,8 +63,8 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
     <header class="site-header">
       <div class="wrap">
         <a class="brand" href={link('/')}>
-          <span class="brand-kana">{site.nameKana}</span>
-          <span class="brand-name">{site.name}</span>
+          <span class="brand-kana">{site.name}</span>
+          <span class="brand-name">{site.displaySei}<ruby>{site.displayMei}<rt>{site.displayMeiKana}</rt></ruby></span>
         </a>
         <nav class="nav-desktop" aria-label="メインメニュー">
           <ul class="nav-list">
@@ -107,7 +107,8 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
       <div class="wrap">
         <div class="footer-grid">
           <div>
-            <p class="footer-name">{site.name}</p>
+            <p class="footer-name">{site.displayName}</p>
+            <p class="footer-formal">{site.name}({site.nameKana})</p>
             <p>{site.catchphrase} ― {site.subcatch}</p>
           </div>
           <div>

@@ -17,7 +17,15 @@ export const site = {
 
   name: '十河 陽之助',
   nameKana: 'そごう ようのすけ',
-  title: '十河 陽之助 公式サイト',
+  /**
+   * ふだんの表示に使う名前。ビラやポスターと同じく、姓はひらがな、名は漢字にふりがな。
+   * 正式な表記(name)は、プロフィール、署名、法的な記載に使う。
+   */
+  displayName: 'そごう陽之助',
+  displaySei: 'そごう',
+  displayMei: '陽之助',
+  displayMeiKana: 'ようのすけ',
+  title: 'そごう陽之助(十河 陽之助)公式サイト',
   catchphrase: '同行二人',
   subcatch: '皆さまとともに、高松・香川の未来へ',
   description:

@@ -21,9 +21,9 @@ const e = site.election;
       <div class="hero-text">
         <p class="hero-tag"><strong>{site.catchphrase}</strong>{site.subcatch}</p>
         <h1 class="hero-name">
-          <span class="kana">{site.nameKana}</span>
-          <span class="kanji">{site.name.split(' ').map((part) => <span>{part}</span>)}</span>
+          <span class="sei">{site.displaySei}</span><ruby class="mei">{site.displayMei}<rt>{site.displayMeiKana}</rt></ruby>
         </h1>
+        <p class="hero-formal">{site.name}<span>{site.nameKana}</span></p>
         <div class="hero-rule" aria-hidden="true"></div>
         <p class="hero-lead">現場の声を、制度や政策を動かす力に。<br />人口減少に立ち向かう五つの柱。</p>
         <div class="hero-actions">
