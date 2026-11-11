@@ -44,6 +44,13 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
         </section>
       )}
 
+      <section class="pledge" aria-labelledby="pledge-h">
+        <h2 id="pledge-h" class="pledge-h">十河 陽之助の取り組み</h2>
+        <div class="prose prose-large">
+          <Content />
+        </div>
+      </section>
+
       {policy.data.experience && (
         <section class="experience" aria-labelledby="exp-h">
           <h2 id="exp-h" class="pledge-h">なぜ、この政策に取り組むのか</h2>
@@ -61,13 +68,6 @@ const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.dat
           </div>
         </section>
       )}
-
-      <section class="pledge" aria-labelledby="pledge-h">
-        <h2 id="pledge-h" class="pledge-h">十河 陽之助の取り組み</h2>
-        <div class="prose prose-large">
-          <Content />
-        </div>
-      </section>
 
       {policy.data.sources.length > 0 && (
         <section class="sources" aria-labelledby="src-h">
