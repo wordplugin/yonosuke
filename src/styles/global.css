@@ -312,3 +312,7 @@ p:last-child { margin-bottom: 0; }
 .message-portrait img { width: 100%; border-radius: 0.25rem; }
 @media (max-width: 40rem) { .message-portrait { float: none; width: 60%; margin: 0 auto 1.5rem; } }
 .photo-grid img { object-position: 50% 20%; }
+
+/* 埋め込みフォーム */
+.form-embed { background: var(--white); border: 2px solid var(--indigo); border-radius: 0.25rem; overflow: hidden; }
+.form-embed iframe { display: block; width: 100%; height: min(85vh, 60rem); min-height: 34rem; border: 0; }

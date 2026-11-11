@@ -7,8 +7,27 @@ const hasContact = c.office || c.address || c.tel || c.email;
 ---
 <Base title="お問い合わせ" description="十河 陽之助へのご意見・お問い合わせ。">
   <PageHead title="ご意見・お問い合わせ" eyebrow="声を届ける" lead="暮らしの中で感じておられること、地域の課題、県政へのご意見をお聞かせください。" />
-  <section class="section">
+  <section class="section" id="koenkai">
     <div class="wrap narrow">
+      <div class="section-head">
+        <p class="eyebrow">後援会</p>
+        <h2>後援会入会のお申し込み</h2>
+        <p class="section-lead">十河陽之助後援会への入会を希望される方は、下のフォームに必要事項をご入力ください。ご意見・ご感想も、フォームの最後の欄からお寄せいただけます。</p>
+      </div>
+      <div class="form-embed">
+        <iframe src={`${site.forms.koenkai}?embedded=true`} title="十河陽之助後援会 入会申し込みフォーム" loading="lazy">読み込んでいます…</iframe>
+      </div>
+      <p class="more">フォームが表示されない場合は、<a href={site.forms.koenkai} target="_blank" rel="noopener">こちらから別の画面で開けます</a>。</p>
+      <p style="font-size:0.9375rem;color:var(--ink-soft)">お寄せいただいた個人情報の取り扱いは、<a href={link('/privacy/')}>プライバシーポリシー</a>をご覧ください。</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap narrow">
+      <div class="section-head">
+        <p class="eyebrow">連絡先</p>
+        <h2>事務所</h2>
+      </div>
       {hasContact ? (
         <dl class="facts" style="margin-top:0">
           {c.office && <><dt>事務所</dt><dd>{c.office}</dd></>}
@@ -19,7 +38,6 @@ const hasContact = c.office || c.address || c.tel || c.email;
       ) : (
         <p class="empty">事務所の連絡先は準備中です。決まり次第、こちらに掲載します。</p>
       )}
-      <p class="more" style="font-size:0.9375rem;color:var(--ink-soft)">お寄せいただいた個人情報の取り扱いは、<a href={link('/privacy/')}>プライバシーポリシー</a>をご覧ください。</p>
     </div>
   </section>
 </Base>
