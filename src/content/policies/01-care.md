@@ -7,6 +7,38 @@ photo: ../../assets/photos/talk-temple-smile.jpg
 photoPosition: 35% 25%
 photoAlt: 寺でご年配の皆さまに語りかける十河 陽之助
 tag: care
+stats:
+  - label: 介護の仕事の有効求人倍率
+    value: "3.46"
+    unit: 倍
+    detail: 2026年9月。全職業の平均は1.29倍
+    source: 1
+  - label: 65歳以上の割合
+    value: "32.8"
+    unit: "%"
+    detail: 令和7年国勢調査。過去最高で、全国平均は29.4%
+    source: 2
+  - label: 2040年度に必要な介護職員
+    value: "22,183"
+    unit: 人
+    detail: 2022年度の職員数は18,359人。いまの傾向が続いた場合の見込みは16,088人
+    source: 3
+  - label: 一人暮らしの高齢者
+    value: "59,332"
+    unit: 人
+    detail: 令和7年国勢調査。65歳以上の5人に1人(20.0%)。5年前は53,301人
+    source: 2
+context: 香川県では、県民のおよそ3人に1人が65歳以上になりました。一方で、介護の仕事は求職者1人に対して求人が3.46件あり、担い手が集まりにくい状況が続いています。国の推計では、いまの傾向が続くと、2040年度に必要とされる介護職員22,183人に対し、見込まれる職員数は16,088人にとどまります。
+sources:
+  - org: 香川労働局
+    title: 労働市場情報 2026年9月分(職業別求人・求職状況、常用計)
+    url: https://jsite.mhlw.go.jp/kagawa-roudoukyoku/content/contents/002869186.pdf
+  - org: 香川県
+    title: 令和7年国勢調査 人口等基本集計結果(香川県分)
+    url: https://www.pref.kagawa.lg.jp/documents/64081/r7_kokusei_kekka.pdf
+  - org: 厚生労働省
+    title: 第9期介護保険事業計画に基づく介護職員の必要数について(都道府県別)
+    url: https://www.mhlw.go.jp/content/12004000/001274768.pdf
 ---
 
 現場で働く人の処遇と働く環境の改善に取り組みます。

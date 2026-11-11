@@ -4,6 +4,38 @@ numeral: 四
 title: 物価高対策
 lead: 暮らしと地域の事業を守る
 tag: prices
+stats:
+  - label: 食料の値段(高松市、2020年比)
+    value: "+25.1"
+    unit: "%"
+    detail: 令和7年平均の指数は125.1(2020年=100)。前年からは5.8%上昇
+    source: 1
+  - label: 光熱・水道(高松市、2020年比)
+    value: "+15.0"
+    unit: "%"
+    detail: 令和7年平均の指数は115.0。前年からは3.2%上昇
+    source: 1
+  - label: 物価全体(高松市、2020年比)
+    value: "+11.0"
+    unit: "%"
+    detail: 令和7年平均の総合指数は111.0。前年からは2.8%上昇
+    source: 1
+  - label: 香川県の最低賃金
+    value: "1,092"
+    unit: 円
+    detail: 令和8年10月から。5年前(令和3年度)の848円から244円上昇
+    source: 2
+context: 高松市の食料の値段は、5年間で約25%上がりました。賃金も上がっていますが、物価の上昇分を差し引いた実質賃金は令和5年に2.9%下がり、令和7年にようやく2020年の水準に戻ったところです。最低賃金は5年間で約29%上がっており、働く人の支えになる一方、地域の事業者には人件費の負担としてのしかかっています。
+sources:
+  - org: 香川県
+    title: 令和7年 高松市消費者物価指数の動き
+    url: https://www.pref.kagawa.lg.jp/tokei/seikatsu/cpi/2025cpi.html
+  - org: 香川労働局
+    title: 香川県最低賃金を時間額1,092円に引き上げます(令和8年9月1日)
+    url: https://jsite.mhlw.go.jp/kagawa-roudoukyoku/news_topics/newpage_01015.html
+  - org: 香川県
+    title: 令和7年 毎月勤労統計調査地方調査結果(年報)
+    url: https://www.pref.kagawa.lg.jp/tokei/rodo/working/2025maikin.html
 ---
 
 年金で暮らす方や子育て中の家庭など、食料品や光熱費の上昇に苦しむ家計と、仕入れや人件費の負担が増す地域の事業者。その両方の実情を踏まえた支援を進めます。

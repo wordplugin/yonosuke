@@ -19,6 +19,7 @@ const rows = await Promise.all(policies.map(async (p) => ({ p, Content: (await r
             <p class="policy-row-stat">
               <span class="policy-row-stat-label">{p.data.stats[0].label}</span>
               <strong>{p.data.stats[0].value}<small>{p.data.stats[0].unit}</small></strong>
+              {p.data.stats[0].detail && <span class="policy-row-stat-detail">{p.data.stats[0].detail}</span>}
             </p>
           )}
           <Content />
