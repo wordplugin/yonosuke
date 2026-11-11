@@ -63,6 +63,7 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
                   <a href={link(n.href)} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a>
                 </li>
               ))}
+              <li><a href={link('/koenkai/')}>後援会入会のお申し込み</a></li>
               <li><a href={link('/contact/')}>お問い合わせ</a></li>
             </ul>
           </nav>
@@ -102,6 +103,7 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
           <div>
             <h2 class="footer-h">このサイトについて</h2>
             <ul>
+              <li><a href={link('/koenkai/')}>後援会入会のお申し込み</a></li>
               <li><a href={link('/contact/')}>お問い合わせ</a></li>
               <li><a href={link('/privacy/')}>プライバシーポリシー</a></li>
               <li><a href={link('/site-policy/')}>サイトポリシー</a></li>
