@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, link } from '../config';
+interface Props {
+  posts: CollectionEntry<'activity'>[];
+  empty?: string;
+}
+const { posts, empty = '活動報告は準備中です。' } = Astro.props;
+---
+{posts.length > 0 ? (
+  <ul class="posts">
+    {posts.map((p) => (
+      <li class="post-row">
+        <a href={link(`/activity/${p.id}/`)}>
+          <time class="post-date" datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date)}</time>
+          <span class="post-title">{p.data.title}</span>
+          <span class="post-summary">{p.data.summary}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+) : (
+  <p class="empty">{empty}</p>
+)}

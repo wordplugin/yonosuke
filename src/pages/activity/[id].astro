@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { formatDate, link } from '../../config';
+import { getPosts } from '../../lib';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const policies = (await getCollection('policies')).filter((p) => post.data.tags.includes(p.data.tag));
+---
+<Base title={post.data.title} description={post.data.summary}>
+  <PageHead title={post.data.title} eyebrow={formatDate(post.data.date)} crumbs={[{ href: '/activity/', label: '活動報告' }]} />
+  <section class="section">
+    <article class="wrap narrow">
+      {post.data.photo && (
+        <figure class="figure" style="margin-top:0">
+          <Image src={post.data.photo} alt={post.data.photoAlt ?? ''} widths={[640, 1024, 1408]} sizes="(max-width: 44rem) 100vw, 44rem" />
+        </figure>
+      )}
+      <div class="prose">
+        <Content />
+      </div>
+      {policies.length > 0 && (
+        <p style="margin-top:2.5rem">関連する柱:{policies.map((p, i) => <>{i > 0 && '、'}<a href={link(`/policy/${p.id}/`)}>{p.data.title}</a></>)}</p>
+      )}
+      <p class="more"><a href={link('/activity/')}>← 活動報告の一覧</a></p>
+    </article>
+  </section>
+</Base>

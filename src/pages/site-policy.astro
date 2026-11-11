@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site } from '../config';
+---
+<Base title="サイトポリシー">
+  <PageHead title="サイトポリシー" />
+  <section class="section">
+    <div class="wrap narrow prose">
+      <h2>公式の発信について</h2>
+      <p>{site.name}の公式の発信は、このサイトと、下記の公式アカウントで行います。これら以外の名義による発信は、当方とは関係がありません。</p>
+      {site.sns.length > 0 ? (
+        <ul>{site.sns.map((s) => <li><a href={s.url} rel="me noopener">{s.label}</a></li>)}</ul>
+      ) : (
+        <p>公式アカウントは準備中です。開設次第、こちらに掲載します。</p>
+      )}
+      <h2>著作権</h2>
+      <p>このサイトの文章、写真、図版の著作権は、当方または正当な権利者に帰属します。引用の範囲を超える転載はご遠慮ください。</p>
+      <h2>リンク</h2>
+      <p>このサイトへのリンクは自由です。ご連絡の必要はありません。</p>
+      <h2>選挙期間中の更新について</h2>
+      <p>公職選挙法の定めにより、選挙の投票日当日は、このサイトの更新を行いません。</p>
+    </div>
+  </section>
+</Base>

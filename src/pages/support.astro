@@ -1,0 +1,43 @@
+---
+import { link } from '../config';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+---
+<Base title="応援する" description="十河 陽之助の活動を応援する方法。後援会へのご入会、ボランティア、ご寄付。">
+  <PageHead title="応援する" eyebrow="ともに歩む" lead="地域づくりは、一人で成し遂げられるものではありません。できる形で、ともに歩んでいただければ幸いです。" />
+  <section class="section">
+    <div class="wrap">
+      <div class="cards">
+        <section class="card" id="koenkai">
+          <h2>後援会に入る</h2>
+          <p>活動を継続して支えていただく後援会の会員を募集しています。活動報告や集会のご案内をお届けします。</p>
+          <p class="notice">お申し込みの受付は準備中です。</p>
+        </section>
+        <section class="card" id="volunteer">
+          <h2>ボランティアで参加する</h2>
+          <p>ご都合のよい時間に、できることからお手伝いください。</p>
+          <ul>
+            <li>活動報告の配布</li>
+            <li>集会の会場準備・受付</li>
+            <li>SNSでの紹介</li>
+            <li>ご友人・ご近所へのお声がけ</li>
+          </ul>
+          <p class="notice">ご登録の受付は準備中です。</p>
+        </section>
+        <section class="card" id="donate">
+          <h2>寄付で支える</h2>
+          <p>皆さまからのご寄付は、活動報告の作成や集会の開催など、日々の政治活動に大切に使わせていただきます。</p>
+          <p class="notice">ご寄付の受付は準備中です。</p>
+        </section>
+      </div>
+
+      <div class="narrow" style="margin-top:3rem">
+        <div class="notice">
+          <strong>ご寄付とボランティアについてのお願い</strong>
+          政治資金規正法により、外国籍の方や匿名でのご寄付はお受けできません。また、公職選挙法により、18歳未満の方は選挙運動に参加できません。あらかじめご了承ください。
+        </div>
+        <p class="more">ご不明な点は<a href={link('/contact/')}>お問い合わせ</a>からお尋ねください。</p>
+      </div>
+    </div>
+  </section>
+</Base>

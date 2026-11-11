@@ -1,0 +1,11 @@
+---
+import { link } from '../config';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+---
+<Base title="ページが見つかりません">
+  <PageHead title="ページが見つかりません" lead="お探しのページは、移動または削除された可能性があります。" />
+  <section class="section">
+    <div class="wrap narrow"><a class="btn" href={link('/')}>トップへ戻る</a></div>
+  </section>
+</Base>

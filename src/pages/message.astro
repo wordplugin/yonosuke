@@ -1,0 +1,29 @@
+---
+import { link } from '../config';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import photo from '../assets/photos/talk-temple-audience.jpg';
+---
+<Base title="県政への決意" description="十河 陽之助の県政への決意。現場で聞いてきた声を、制度や政策を動かす力につなげたい。">
+  <PageHead title="県政への決意" eyebrow="同行二人 ― 皆さまとともに、高松・香川の未来へ" />
+  <section class="section">
+    <div class="wrap narrow prose prose-large">
+      <p>私は四国八十六番札所の僧侶として、日々お遍路さんをお迎えしています。あわせて医療・介護・福祉の事業を営み、3人の子を育てる父として、また小学校のPTA会長として、子どもたちや保護者、学校の皆さんと向き合ってきました。高松青年会議所や四国八十八ヶ所霊場会などの活動を通じて、多くの方々と地域づくりにも取り組んできました。</p>
+      <p>人口減少が全国に先駆けて進む四国で、地域の活力をどう守り、次の世代へ引き継いでいくか。その答えを探す中で痛感してきたのは、現場の努力だけでは越えられない壁があるということです。医療・介護・福祉の現場では人手不足が深刻になり、物価の上昇に見合う賃上げさえ容易ではありません。子育てや教育の現場でも、家庭や学校だけでは抱えきれない課題が増えています。</p>
+      <p class="pullquote">現場で聞いてきた声を、制度や政策を動かす力につなげたい。</p>
+      <p>その思いから、私は香川県政への挑戦を決意しました。</p>
+
+      <figure class="figure">
+        <Image src={photo} alt="地域の皆さまを前に話す十河 陽之助" widths={[640, 1024, 1408]} sizes="(max-width: 44rem) 100vw, 44rem" />
+      </figure>
+
+      <h2>同行二人 ― 皆さまとともに</h2>
+      <p>四国遍路には、お大師さまとともに歩む「同行二人」という言葉があります。地域づくりも、一人で成し遂げられるものではありません。</p>
+      <p>皆さまの声に耳を傾け、ともに考え、ともに行動し、これまで地域を築いてこられた皆さまの思いを受け継ぎ、次の世代に誇れる高松・香川を引き継ぐため、力を尽くしてまいります。</p>
+      <p class="signature">十河 陽之助</p>
+
+      <p class="more"><a class="btn" href={link('/policy/')}>取り組みたい五つの柱</a></p>
+    </div>
+  </section>
+</Base>

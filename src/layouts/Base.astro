@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+import { site, nav, formatDate, link } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} | ${site.title}` : `${site.title} | ${site.catchphrase} ― ${site.subcatch}`;
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => path.startsWith(link(href));
+const e = site.election;
+const c = site.contact;
+const hasContact = c.office || c.address || c.tel || c.email;
+const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選挙特設' }, ...nav] : nav;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {site.draft && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="theme-color" content="#dc3209" />
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    {site.draft && <p class="ribbon ribbon-draft" style="margin:0">制作中のプレビュー版です。内容は確認前のものを含みます。</p>}
+    {site.mode === 'campaign' && (
+      <p class="ribbon ribbon-campaign" style="margin:0">
+        {e.name}{e.district && ` ${e.district}`}{e.votingDate && ` ${formatDate(e.votingDate)}投票`} <a href={link('/election/')}>投票のご案内</a>
+      </p>
+    )}
+    {site.mode === 'post' && site.postMessage && <p class="ribbon ribbon-post" style="margin:0">{site.postMessage}</p>}
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={link('/')}>
+          <span class="brand-kana">{site.nameKana}</span>
+          <span class="brand-name">{site.name}</span>
+        </a>
+        <nav class="nav-desktop" aria-label="メインメニュー">
+          <ul class="nav-list">
+            {navItems.map((n) => (
+              <li class={n.href === '/support/' ? 'nav-cta' : undefined}>
+                <a href={link(n.href)} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <details class="nav-mobile">
+          <summary>メニュー</summary>
+          <nav aria-label="メインメニュー">
+            <ul class="nav-list">
+              {navItems.map((n) => (
+                <li class={n.href === '/support/' ? 'nav-cta' : undefined}>
+                  <a href={link(n.href)} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a>
+                </li>
+              ))}
+              <li><a href={link('/contact/')}>お問い合わせ</a></li>
+            </ul>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <p class="footer-name">{site.name}</p>
+            <p>{site.catchphrase} ― {site.subcatch}</p>
+          </div>
+          <div>
+            <h2 class="footer-h">連絡先</h2>
+            {hasContact ? (
+              <address class="footer-contact">
+                {c.office && <>{c.office}<br /></>}
+                {c.address && <>{c.address}<br /></>}
+                {c.tel && <>電話 <a href={`tel:${c.tel.replace(/[^0-9+]/g, '')}`}>{c.tel}</a><br /></>}
+                {c.email && <>メール <a href={`mailto:${c.email}`}>{c.email}</a></>}
+              </address>
+            ) : (
+              <p>事務所の連絡先は準備中です。</p>
+            )}
+            {site.sns.length > 0 && (
+              <ul style="margin-top:0.75rem">
+                {site.sns.map((s) => <li><a href={s.url} rel="me noopener">{s.label}</a></li>)}
+              </ul>
+            )}
+          </div>
+          <div>
+            <h2 class="footer-h">このサイトについて</h2>
+            <ul>
+              <li><a href={link('/contact/')}>お問い合わせ</a></li>
+              <li><a href={link('/privacy/')}>プライバシーポリシー</a></li>
+              <li><a href={link('/site-policy/')}>サイトポリシー</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="copyright">© {new Date().getFullYear()} {site.name}</p>
+      </div>
+    </footer>
+  </body>
+</html>

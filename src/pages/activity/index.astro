@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../lib';
+const posts = await getPosts();
+---
+<Base title="活動報告" description="十河 陽之助の日々の活動報告。">
+  <PageHead title="活動報告" eyebrow="日々の活動から" />
+  <section class="section">
+    <div class="wrap narrow">
+      <PostList posts={posts} />
+    </div>
+  </section>
+</Base>

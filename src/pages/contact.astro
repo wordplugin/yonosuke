@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site, link } from '../config';
+const c = site.contact;
+const hasContact = c.office || c.address || c.tel || c.email;
+---
+<Base title="お問い合わせ" description="十河 陽之助へのご意見・お問い合わせ。">
+  <PageHead title="ご意見・お問い合わせ" eyebrow="声を届ける" lead="暮らしの中で感じておられること、地域の課題、県政へのご意見をお聞かせください。" />
+  <section class="section">
+    <div class="wrap narrow">
+      {hasContact ? (
+        <dl class="facts" style="margin-top:0">
+          {c.office && <><dt>事務所</dt><dd>{c.office}</dd></>}
+          {c.address && <><dt>所在地</dt><dd>{c.address}</dd></>}
+          {c.tel && <><dt>電話</dt><dd><a href={`tel:${c.tel.replace(/[^0-9+]/g, '')}`}>{c.tel}</a></dd></>}
+          {c.email && <><dt>メール</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd></>}
+        </dl>
+      ) : (
+        <p class="empty">事務所の連絡先は準備中です。決まり次第、こちらに掲載します。</p>
+      )}
+      <p class="more" style="font-size:0.9375rem;color:var(--ink-soft)">お寄せいただいた個人情報の取り扱いは、<a href={link('/privacy/')}>プライバシーポリシー</a>をご覧ください。</p>
+    </div>
+  </section>
+</Base>

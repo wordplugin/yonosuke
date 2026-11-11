@@ -1,0 +1,20 @@
+---
+import { link } from '../config';
+import { getCollection, render } from 'astro:content';
+const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order);
+const rows = await Promise.all(policies.map(async (p) => ({ p, Content: (await render(p)).Content })));
+---
+<ol class="policy-rows">
+  {rows.map(({ p, Content }) => (
+    <li class="policy-row">
+      <div class="policy-row-num" aria-hidden="true">{p.data.numeral}</div>
+      <div class="policy-row-body">
+        <div>
+          <h3 class="policy-row-title"><a href={link(`/policy/${p.id}/`)}>{p.data.title}</a></h3>
+          <p class="policy-row-lead">{p.data.lead}</p>
+        </div>
+        <div class="policy-row-text"><Content /></div>
+      </div>
+    </li>
+  ))}
+</ol>

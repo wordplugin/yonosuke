@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site } from '../config';
+import portrait from '../assets/photos/portrait-temple-standing.jpg';
+import ceremony from '../assets/photos/ceremony-seated.jpg';
+import talk from '../assets/photos/talk-temple-smile.jpg';
+---
+<Base title="プロフィール" description="十河 陽之助(そごう ようのすけ)のプロフィール。僧侶、医療・介護・福祉の事業者、3人の子の父。">
+  <PageHead title="プロフィール" eyebrow="人となり" />
+  <section class="section">
+    <div class="wrap profile-top">
+      <div class="profile-photo">
+        <Image src={portrait} alt="法衣姿で微笑む十河 陽之助" widths={[400, 640, 1081]} sizes="(max-width: 48rem) 18rem, 20rem" />
+      </div>
+      <div>
+        <p class="profile-kana">{site.nameKana}</p>
+        <p class="profile-name">{site.name}</p>
+        <dl class="facts">
+          <dt>生まれ</dt><dd>1976年 香川県さぬき市</dd>
+          <dt>僧名</dt><dd>瑞澄(ずいちょう)</dd>
+          <dt>仕事</dt><dd>四国霊場第八十六番札所 志度寺 副住職<br />医療・介護・福祉の事業を営む</dd>
+          <dt>家族</dt><dd>3人の子の父</dd>
+          <dt>地域で</dt><dd>小学校PTA会長、高松青年会議所、四国八十八ヶ所霊場会などで活動</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap narrow">
+      <div class="section-head">
+        <p class="eyebrow">歩み</p>
+        <h2>これまでの活動</h2>
+      </div>
+      <ol class="timeline">
+        <li><span class="timeline-year">2015年</span>公益社団法人 高松青年会議所 第55代理事長。「UDONフェス'15」を開催。</li>
+        <li><span class="timeline-year">2016年</span>公益社団法人 日本青年会議所 四国地区協議会 会長。</li>
+        <li><span class="timeline-year">2016年</span>「四国遍路の心でつなぐ防災教育研究会」を大学や防災の専門家とともに立ち上げ、会長に。寺に残る災害の歴史を学ぶ催しや公開シンポジウムを開く。</li>
+        <li><span class="timeline-year">2018年</span>外国からのお遍路さんのために、空き店舗を活用した遍路宿づくりを大学生とともに進める。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow prose">
+      <h2>お接待の心を、防災と地域づくりへ</h2>
+      <p>お遍路さんに尋ねると、返ってくるのは「地元の人がお接待をしてくれて、感動した」という声です。人の優しさがあるから、1200年もの長い間お遍路さんが訪れる。その「おもてなし」の心は、災害のときに助け合う「共助」の心にも通じています。</p>
+      <p>東日本大震災をきっかけに防災に取り組み始め、遍路文化と防災を結びつける活動を続けてきました。地域のつながりこそが、人の命を守る力になると考えています。</p>
+    </div>
+    <div class="wrap" style="margin-top:2.5rem">
+      <div class="photo-grid">
+        <Image src={talk} alt="寺で地域の皆さまに話す様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
+        <Image src={ceremony} alt="屋外の法要に臨む様子" widths={[480, 800]} sizes="(max-width: 40rem) 100vw, 33vw" />
+      </div>
+    </div>
+  </section>
+</Base>

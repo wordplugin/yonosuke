@@ -1,0 +1,21 @@
+---
+import { link } from '../config';
+interface Props {
+  title: string;
+  eyebrow?: string;
+  lead?: string;
+  crumbs?: { href: string; label: string }[];
+}
+const { title, eyebrow, lead, crumbs = [] } = Astro.props;
+---
+<div class="page-head">
+  <div class="wrap">
+    <p class="crumbs">
+      <a href={link('/')}>トップ</a>
+      {crumbs.map((c) => <> / <a href={link(c.href)}>{c.label}</a></>)}
+    </p>
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {lead && <p class="section-lead">{lead}</p>}
+  </div>
+</div>

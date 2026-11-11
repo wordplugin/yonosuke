@@ -1,0 +1,44 @@
+---
+import { link } from '../../config';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../lib';
+
+export async function getStaticPaths() {
+  const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order);
+  return policies.map((p, i) => ({
+    params: { id: p.id },
+    props: { policy: p, prev: policies[i - 1], next: policies[i + 1] },
+  }));
+}
+const { policy, prev, next } = Astro.props;
+const { Content } = await render(policy);
+const related = (await getPosts()).filter((p) => p.data.tags.includes(policy.data.tag)).slice(0, 5);
+---
+<Base title={`${policy.data.title} | 政策`} description={`${policy.data.title} ― ${policy.data.lead}`}>
+  <PageHead title={policy.data.title} eyebrow={`五つの柱 ${policy.data.numeral}`} lead={policy.data.lead} crumbs={[{ href: '/policy/', label: '政策' }]} />
+  <section class="section">
+    <div class="wrap narrow">
+      <div class="prose prose-large">
+        <Content />
+      </div>
+
+      {related.length > 0 && (
+        <div style="margin-top:3.5rem">
+          <div class="section-head" style="margin-bottom:1.25rem">
+            <p class="eyebrow">関連する活動</p>
+            <h2 style="font-size:1.375rem">この柱に関する活動報告</h2>
+          </div>
+          <PostList posts={related} />
+        </div>
+      )}
+
+      <nav class="policy-nav" aria-label="ほかの柱">
+        {prev ? <a href={link(`/policy/${prev.id}/`)}>← {prev.data.numeral} {prev.data.title}</a> : <a href={link('/policy/')}>← 五つの柱の一覧</a>}
+        {next ? <a href={link(`/policy/${next.id}/`)}>{next.data.numeral} {next.data.title} →</a> : <a href={link('/policy/')}>五つの柱の一覧 →</a>}
+      </nav>
+    </div>
+  </section>
+</Base>

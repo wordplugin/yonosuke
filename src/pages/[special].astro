@@ -1,0 +1,47 @@
+---
+/**
+ * 選挙特設ページ(/election/)。
+ * 選挙運動期間(mode: 'campaign')のときだけ生成する。告示前はページ自体が存在しない。
+ */
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import ScheduleList from '../components/ScheduleList.astro';
+import Pillars from '../components/Pillars.astro';
+import { site, formatDate } from '../config';
+
+export function getStaticPaths() {
+  return site.mode === 'campaign' ? [{ params: { special: 'election' } }] : [];
+}
+const e = site.election;
+---
+<Base title="選挙特設" description={`${e.name}の投票のご案内。`}>
+  <PageHead title="投票のご案内" eyebrow={`${e.name}${e.district ? ` ${e.district}` : ''}`} lead="十河 陽之助に、皆さまの一票をお願いいたします。" />
+  <section class="section">
+    <div class="wrap narrow">
+      <dl class="facts" style="margin-top:0">
+        {e.votingDate && <><dt>投票日</dt><dd>{formatDate(e.votingDate)} 午前7時〜午後8時(投票所により異なる場合があります)</dd></>}
+        {e.announceDate && e.votingDate && <><dt>期日前投票</dt><dd>告示日の翌日から投票日の前日まで。場所と時間は、お住まいの市の選挙管理委員会のご案内をご確認ください。</dd></>}
+        {e.district && <><dt>選挙区</dt><dd>{e.district}</dd></>}
+        <dt>投票用紙</dt><dd>「十河 陽之助」または「そごう ようのすけ」とお書きください。</dd>
+      </dl>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="wrap narrow">
+      <div class="section-head">
+        <p class="eyebrow">日程</p>
+        <h2>街頭演説の予定</h2>
+      </div>
+      <ScheduleList />
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">政策</p>
+        <h2>取り組みたい五つの柱</h2>
+      </div>
+      <Pillars />
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PolicyRows from '../components/PolicyRows.astro';
+import { getCollection } from 'astro:content';
+import PostList from '../components/PostList.astro';
+import ScheduleList from '../components/ScheduleList.astro';
+import { site, formatDate, link } from '../config';
+import { getPosts } from '../lib';
+import heroPhoto from '../assets/photos/portrait-temple-standing.jpg';
+import introPhoto from '../assets/photos/talk-temple-smile.jpg';
+
+const posts = (await getPosts()).slice(0, 3);
+const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order);
+const e = site.election;
+---
+<Base>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-tag"><strong>{site.catchphrase}</strong>{site.subcatch}</p>
+        <h1 class="hero-name">
+          <span class="kana">{site.nameKana}</span>
+          <span class="kanji">{site.name.split(' ').map((part) => <span>{part}</span>)}</span>
+        </h1>
+        <div class="hero-rule" aria-hidden="true"></div>
+        <p class="hero-lead">現場の声を、制度や政策を動かす力に。<br />人口減少に立ち向かう五つの柱。</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#policy">五つの柱を見る</a>
+          <a class="btn btn-outline-light" href={link('/message/')}>県政への決意</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <Image src={heroPhoto} alt="法衣姿で微笑む十河 陽之助" widths={[480, 800, 1081]} sizes="(max-width: 52rem) 100vw, 46vw" loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+    <ol class="hero-pillars">
+      {policies.map((p) => (
+        <li><a href={link(`/policy/${p.id}/`)}><span class="n" aria-hidden="true">{p.data.numeral}</span>{p.data.title}</a></li>
+      ))}
+    </ol>
+  </section>
+
+  {site.mode === 'campaign' && (
+    <section class="section section-deep">
+      <div class="wrap cta">
+        <div>
+          <p class="eyebrow">{e.name}{e.district && ` ${e.district}`}</p>
+          <h2>{e.votingDate ? `${formatDate(e.votingDate)}は投票日です` : '投票のお願い'}</h2>
+          <p>十河 陽之助に、皆さまの一票をお願いいたします。期日前投票もご利用いただけます。</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-light" href={link('/election/')}>投票のご案内</a>
+          <a class="btn btn-light" href={link('/schedule/')}>街頭演説の日程</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="policy">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">政策</p>
+        <h2>取り組みたい<em>五つの柱</em></h2>
+        <p class="section-lead">若い世代が働き、子どもを育て、年を重ねても住み慣れた地域で安心して暮らし続けられる高松・香川へ。五つの柱は、いずれも人口減少に立ち向かうための取り組みです。</p>
+      </div>
+      <PolicyRows />
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap intro">
+      <div class="intro-photo">
+        <Image src={introPhoto} alt="地域の皆さまに笑顔で語りかける十河 陽之助" widths={[480, 800, 1200]} sizes="(max-width: 48rem) 100vw, 40vw" />
+      </div>
+      <div class="intro-text">
+        <p class="eyebrow">県政への決意</p>
+        <p class="lead">現場で聞いてきた声を、制度や政策を動かす力につなげたい。</p>
+        <p>四国霊場の札所の僧侶として、医療・介護・福祉の事業者として、3人の子を育てる父として。地域の現場で痛感してきたのは、現場の努力だけでは越えられない壁があるということでした。</p>
+        <p>人口減少が全国に先駆けて進む四国で、地域の活力をどう守り、次の世代へ引き継いでいくか。その答えを、皆さまとともに探していきます。</p>
+        <p class="more"><a class="btn btn-ghost" href={link('/message/')}>決意の全文を読む</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">活動報告</p>
+        <h2>日々の活動から</h2>
+      </div>
+      <PostList posts={posts} />
+      <p class="more"><a class="btn btn-ghost" href={link('/activity/')}>活動報告の一覧</a></p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">日程</p>
+        <h2>お会いできる場所</h2>
+      </div>
+      <ScheduleList limit={3} />
+      <p class="more"><a class="btn btn-ghost" href={link('/schedule/')}>日程の一覧</a></p>
+    </div>
+  </section>
+
+  <section class="section section-deep">
+    <div class="wrap cta">
+      <div>
+        <p class="eyebrow">応援する</p>
+        <h2>地域づくりは、<br />一人では成し遂げられません</h2>
+        <p>四国遍路には、お大師さまとともに歩む「同行二人」という言葉があります。皆さまの声を聞かせてください。そして、ともに歩んでください。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-light" href={link('/support/')}>活動を応援する</a>
+        <a class="btn btn-light" href={link('/contact/')}>ご意見を届ける</a>
+      </div>
+    </div>
+  </section>
+</Base>

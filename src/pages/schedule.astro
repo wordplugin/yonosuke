@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import ScheduleList from '../components/ScheduleList.astro';
+---
+<Base title="日程" description="十河 陽之助の街頭活動や集会の日程。">
+  <PageHead title="日程" eyebrow="お会いできる場所" lead="街頭での活動や集会の予定をお知らせします。お近くの際は、ぜひお声がけください。" />
+  <section class="section">
+    <div class="wrap narrow">
+      <ScheduleList />
+    </div>
+  </section>
+</Base>

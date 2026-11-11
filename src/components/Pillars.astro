@@ -1,0 +1,16 @@
+---
+import { link } from '../config';
+import { getCollection } from 'astro:content';
+const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order);
+---
+<ol class="pillars">
+  {policies.map((p) => (
+    <li class="pillar">
+      <a href={link(`/policy/${p.id}/`)}>
+        <span class="pillar-num" aria-hidden="true">{p.data.numeral}</span>
+        <span class="pillar-title">{p.data.title}</span>
+        <span class="pillar-lead">{p.data.lead}</span>
+      </a>
+    </li>
+  ))}
+</ol>

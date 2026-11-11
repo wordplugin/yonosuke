@@ -1,0 +1,33 @@
+---
+import { schedule } from '../data/schedule';
+import { formatDateWithDay } from '../config';
+interface Props { limit?: number }
+const { limit } = Astro.props;
+// 日本時間の今日以降だけを出す(ビルド時点で判定)
+const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
+let items = schedule.filter((s) => s.date >= today).sort((a, b) => (a.date + (a.time ?? '')).localeCompare(b.date + (b.time ?? '')));
+if (limit) items = items.slice(0, limit);
+---
+{items.length > 0 ? (
+  <ul class="schedule">
+    {items.map((s) => (
+      <li>
+        <div class="schedule-date">
+          <time datetime={s.date}>{formatDateWithDay(s.date)}</time>
+          {s.time && <span class="schedule-time">{s.time}</span>}
+        </div>
+        <div>
+          <div class="schedule-title">{s.title}</div>
+          {s.place && (
+            <div class="schedule-place">
+              {s.mapUrl ? <a href={s.mapUrl} rel="noopener">{s.place}(地図)</a> : s.place}
+            </div>
+          )}
+          {s.note && <div class="schedule-place">{s.note}</div>}
+        </div>
+      </li>
+    ))}
+  </ul>
+) : (
+  <p class="empty">現在、お知らせできる予定はありません。決まり次第、こちらでお知らせします。</p>
+)}
