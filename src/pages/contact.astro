@@ -6,7 +6,7 @@ const c = site.contact;
 const hasContact = c.office || c.address || c.tel || c.email;
 ---
 <Base title="お問い合わせ" description="十河 陽之助へのご意見・お問い合わせ。">
-  <PageHead title="ご意見・お問い合わせ" eyebrow="声を届ける" lead="暮らしの中で感じておられること、地域の課題、県政へのご意見をお聞かせください。" />
+  <PageHead title="ご意見・お問い合わせ" eyebrow="声を届ける" lead="後援会へのご入会は、下のフォームからお申し込みいただけます。" />
   <section class="section" id="koenkai">
     <div class="wrap narrow">
       <div class="section-head">
@@ -26,7 +26,7 @@ const hasContact = c.office || c.address || c.tel || c.email;
     <div class="wrap narrow">
       <div class="section-head">
         <p class="eyebrow">連絡先</p>
-        <h2>事務所</h2>
+        <h2>一般のお問い合わせ</h2>
       </div>
       {hasContact ? (
         <dl class="facts" style="margin-top:0">
@@ -36,7 +36,7 @@ const hasContact = c.office || c.address || c.tel || c.email;
           {c.email && <><dt>メール</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd></>}
         </dl>
       ) : (
-        <p class="empty">事務所の連絡先は準備中です。決まり次第、こちらに掲載します。</p>
+        <p class="empty">一般のお問い合わせは、事務所の連絡先が決まり次第、こちらでご案内します。</p>
       )}
     </div>
   </section>
