@@ -56,6 +56,13 @@ export const site = {
    */
   analyticsId: '',
 
+  /**
+   * Google タグの ID(Google アナリティクスの管理画面に表示される「GTM-」で始まる文字列)。
+   * 入れると、Google が案内する形のタグを全ページに入れる。計測先は Google 側の設定で決まる。
+   * 制作中(draft)の間は読み込まない。
+   */
+  gtmId: 'GTM-W2FJ9PJ4',
+
   /** 公式SNS。ここに載せたものだけを公式アカウントとして案内する */
   sns: [] as { label: string; url: string }[],
 };

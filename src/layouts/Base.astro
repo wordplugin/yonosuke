@@ -14,6 +14,7 @@ const e = site.election;
 const c = site.contact;
 const hasContact = c.office || c.address || c.tel || c.email;
 const gaId = !site.draft && site.analyticsId ? site.analyticsId : '';
+const gtmId = !site.draft && site.gtmId ? site.gtmId : '';
 const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選挙特設' }, ...nav] : nav;
 ---
 <!doctype html>
@@ -30,6 +31,14 @@ const navItems = site.mode === 'campaign' ? [{ href: '/election/', label: '選�
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
+    {gtmId && <script is:inline async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}></script>}
+    {gtmId && (
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+      </script>
+    )}
     {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
     {gaId && (
       <script is:inline define:vars={{ gaId }}>
