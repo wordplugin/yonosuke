@@ -7,7 +7,24 @@ const hasContact = c.office || c.address || c.tel || c.email;
 ---
 <Base title="お問い合わせ" description="十河 陽之助へのご意見・お問い合わせ。">
   <PageHead title="ご意見・お問い合わせ" eyebrow="声を届ける" lead="暮らしの中で感じておられること、地域の課題、県政へのご意見をお聞かせください。" />
-  <section class="section">
+  {site.forms.contact && (
+    <section class="section" id="form">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <p class="eyebrow">フォーム</p>
+          <h2>ご意見・お問い合わせフォーム</h2>
+          <p class="section-lead">ご意見・ご質問は、下のフォームからお送りください。</p>
+        </div>
+        <div class="form-embed">
+          <iframe src={`${site.forms.contact}?embedded=true`} title="ご意見・お問い合わせフォーム" loading="lazy">読み込んでいます…</iframe>
+        </div>
+        <p class="more">フォームが表示されない場合は、<a href={site.forms.contact} target="_blank" rel="noopener">こちらから別の画面で開けます</a>。</p>
+        <p style="font-size:0.9375rem;color:var(--ink-soft)">お寄せいただいた個人情報の取り扱いは、<a href={link('/privacy/')}>プライバシーポリシー</a>をご覧ください。</p>
+      </div>
+    </section>
+  )}
+
+  <section class={site.forms.contact ? 'section section-alt' : 'section'}>
     <div class="wrap narrow">
       <div class="section-head">
         <p class="eyebrow">連絡先</p>
@@ -21,9 +38,9 @@ const hasContact = c.office || c.address || c.tel || c.email;
           {c.email && <><dt>メール</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd></>}
         </dl>
       ) : (
-        <p class="empty">一般のお問い合わせは、事務所の連絡先が決まり次第、こちらでご案内します。</p>
-      <p class="more">後援会へのご入会は、<a href={link('/koenkai/')}>後援会入会のお申し込み</a>のページからお手続きいただけます。</p>
+        <p class="empty">事務所の連絡先は、決まり次第こちらでご案内します。</p>
       )}
+      <p class="more">後援会へのご入会は、<a href={link('/koenkai/')}>後援会入会のお申し込み</a>のページからお手続きいただけます。</p>
     </div>
   </section>
 </Base>

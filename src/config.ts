@@ -56,6 +56,8 @@ export const site = {
   /** 受付フォーム(Google フォーム)。URL は「viewform」で終わる公開用のもの */
   forms: {
     koenkai: 'https://docs.google.com/forms/d/e/1FAIpQLSe6g_Tr0nRXUNLTc-5bO9K_ZEYaDv67KCWBW174Cb0ZrXSNaQ/viewform',
+    /** ご意見・お問い合わせ用。URL を入れると /contact/ に埋め込まれる。空のままなら表示しない */
+    contact: '',
   },
 
   /**
