@@ -57,7 +57,7 @@ export const site = {
   forms: {
     koenkai: 'https://docs.google.com/forms/d/e/1FAIpQLSe6g_Tr0nRXUNLTc-5bO9K_ZEYaDv67KCWBW174Cb0ZrXSNaQ/viewform',
     /** ご意見・お問い合わせ用。URL を入れると /contact/ に埋め込まれる。空のままなら表示しない */
-    contact: '',
+    contact: 'https://docs.google.com/forms/d/e/1FAIpQLSfdvspmqHAuRgkfXF3HmJ2DxxQiEFM9Lsa9STd12wFLA32Z1Q/viewform',
   },
 
   /**

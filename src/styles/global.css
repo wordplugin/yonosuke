@@ -534,3 +534,7 @@ p:last-child { margin-bottom: 0; }
   .brand-kana { font-size: 0.625rem; }
 }
 @media (max-width: 22.5rem) { .hero-name { font-size: 2.6rem; } }
+
+/* 質問の少ないフォームは、枠の中でスクロールしなくて済む高さにする */
+.form-embed-short iframe { height: 44rem; min-height: 0; }
+@media (max-width: 52rem) { .form-embed-short iframe { height: 50rem; } }
