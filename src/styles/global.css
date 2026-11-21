@@ -1,20 +1,21 @@
 :root {
   --radius: 0.5rem;
   --shadow: 0 1px 3px rgb(18 33 63 / 0.08);
-  /* 基調色。「陽」の字と寺の朱塗りにちなんだ朱色と、山吹の黄色。ここを変えれば全体の色が変わる */
-  --indigo: #dc3209;       /* 主役の色(朱) */
-  --indigo-deep: #b32500;  /* 主役の色の濃いもの */
-  --navy: #12213f;         /* 引き締め役の紺 */
-  --gold-bright: #ffd400;  /* 差し色(黄) */
-  --gold-soft: #fff0a8;
-  --gold: #e07b00;
+  /* 基調色。ビラ・ポスター・三つ折りの青と黄色にそろえてある。ここを変えれば全体の色が変わる
+     (変数名の indigo は「主役の色」の意味。値は青) */
+  --indigo: #3d62ad;       /* 主役の色(ビラの青) */
+  --indigo-deep: #2c4a93;  /* 主役の色の濃いもの(ホバー、縁取り) */
+  --navy: #1d2f63;         /* 引き締め役の濃い青(フッターなど) */
+  --gold-bright: #ffe200;  /* 差し色(ビラの黄色の帯) */
+  --gold-soft: #fff0b9;    /* ビラ上部のクリーム色 */
+  --gold: #c79a00;
   --ink: #1a1f2b;
   --ink-soft: #4a5261;
-  --paper: #fffdf7;
-  --paper-deep: #fff2c2;
+  --paper: #fffdf6;
+  --paper-deep: #fff3c8;
   --white: #fff;
-  --line: #eadfc4;
-  --shu: #b32500;
+  --line: #e6dec4;
+  --shu: #24407f;          /* リンクのホバー色(濃い青) */
   --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "BIZ UDPMincho", serif;
   --sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", "BIZ UDPGothic", Meiryo, sans-serif;
   --wrap: 68rem;
@@ -86,15 +87,15 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* トップ:名前を主役にした大見出し */
-.hero { background: linear-gradient(120deg, #d42c06 0%, #e5450d 100%); color: var(--white); position: relative; overflow: hidden; }
+.hero { background: linear-gradient(135deg, #36589f 0%, #3d62ad 50%, #4570b9 100%); color: var(--white); position: relative; overflow: hidden; }
 .hero-inner { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; max-width: 90rem; margin-inline: auto; }
 .hero-text { padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) clamp(2.5rem, 6vw, 4.5rem) max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); display: flex; flex-direction: column; justify-content: center; }
 @media (min-width: 90rem) { .hero-text { padding-left: calc((90rem - var(--wrap)) / 2 + var(--gutter)); } }
-.hero-tag { font-family: var(--serif); font-weight: 600; font-size: clamp(1rem, 1.7vw, 1.3125rem); letter-spacing: 0.12em; margin: 0 0 1.5rem; color: var(--gold-soft); line-height: 1.7; }
-.hero-tag strong { display: inline-block; font-weight: 600; font-size: 1.35em; letter-spacing: 0.24em; margin-right: 0.4em; color: var(--white); }
+.hero-tag { font-family: var(--serif); font-weight: 600; font-size: clamp(1rem, 1.7vw, 1.3125rem); letter-spacing: 0.12em; margin: 0 0 1.5rem; color: var(--white); line-height: 1.7; }
+.hero-tag strong { display: inline-block; font-weight: 600; font-size: 1.35em; letter-spacing: 0.24em; margin-right: 0.4em; color: var(--gold-bright); }
 .hero-name { margin: 0; line-height: 1.15; }
 .hero-name .kana { display: block; font-size: clamp(1rem, 1.7vw, 1.375rem); font-weight: 800; letter-spacing: 0.55em; margin-bottom: 0.5rem; color: var(--gold-bright); }
-.hero-name .kanji { text-shadow: 0 0.04em 0 rgb(120 20 0 / 0.35); display: block; font-size: clamp(3.25rem, 8.6vw, 7rem); font-weight: 800; letter-spacing: 0.08em; white-space: nowrap; }
+.hero-name .kanji { text-shadow: 0 0.04em 0 rgb(20 35 90 / 0.35); display: block; font-size: clamp(3.25rem, 8.6vw, 7rem); font-weight: 800; letter-spacing: 0.08em; white-space: nowrap; }
 .hero-name .kanji span { display: inline-block; }
 .hero-name .kanji span + span { margin-left: 0.28em; }
 .hero-rule { width: 5rem; height: 0.375rem; background: var(--gold-bright); margin: 1.75rem 0 1.5rem; }
@@ -102,12 +103,13 @@ p:last-child { margin-bottom: 0; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .hero-photo { position: relative; min-height: 26rem; }
 .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 3%; }
-.hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #e5450d 0%, rgb(229 69 13 / 0) 20%); }
+.hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #3d62ad 0%, rgb(61 98 173 / 0) 20%); }
 @media (max-width: 52rem) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-photo { order: -1; min-height: 0; aspect-ratio: 1 / 1; }
   .hero-photo img { object-position: 50% 0; }
-  .hero-photo::after { background: linear-gradient(180deg, rgb(220 50 9 / 0) 62%, #d93408 100%); }
+  .hero { background: #3d62ad; }
+  .hero-photo::after { background: linear-gradient(180deg, rgb(61 98 173 / 0) 62%, #3d62ad 100%); }
   .hero-text { padding: 0.5rem var(--gutter) 2.5rem; }
   .hero-tag { margin-bottom: 1rem; }
   .hero-tag strong { display: block; }
@@ -131,7 +133,7 @@ p:last-child { margin-bottom: 0; }
 /* 区切り */
 .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
 .section-alt { background: var(--paper-deep); }
-.section-deep { background: linear-gradient(120deg, #d42c06 0%, #e5450d 100%); color: var(--white); }
+.section-deep { background: linear-gradient(135deg, #36589f 0%, #3d62ad 55%, #4570b9 100%); color: var(--white); }
 .section-deep a:not(.btn) { color: var(--white); }
 .section-head { margin-bottom: 2.25rem; }
 .section-head h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
@@ -200,7 +202,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 48rem) { .cta { grid-template-columns: 1fr; } }
 
 /* 下層ページ */
-.page-head { background: var(--paper-deep); border-bottom: 0; padding-block: clamp(2.5rem, 6vw, 4rem); }
+.page-head { background: linear-gradient(180deg, var(--gold-soft) 0%, #fff9e2 100%); border-bottom: 0; padding-block: clamp(2.5rem, 6vw, 4rem); }
 .page-head h1 { font-size: clamp(2rem, 5vw, 3rem); }
 .page-head h1::after { content: ""; display: block; width: 4rem; height: 0.375rem; background: var(--indigo); margin-top: 1rem; }
 .page-head .section-lead { margin-top: 0.9rem; }
@@ -322,10 +324,10 @@ p:last-child { margin-bottom: 0; }
 
 /* ============================================================
    全体の調子をそろえる決まり
-   - 箱: 白地、細い線、角丸、薄い影。赤い枠線は使わない
-   - 赤: 番号、見出しの左の棒、大事な数字、ボタンとリンクだけ
+   - 箱: 白地、細い線、角丸、薄い影。濃い太枠は使わない
+   - 青: 番号、見出しの左の棒、大事な数字、ボタンとリンクだけ
    - 黄: マーカー、帯、数字の下地だけ
-   - 見出し: 節の見出しは「小見出し(赤)+大見出し」、本文中の見出しは左に赤い棒
+   - 見出し: 節の見出しは「小見出し(青)+大見出し」、本文中の見出しは左に青い棒
    - 本文: 読み物は 1.0625rem / 行間 1.95 にそろえる
    ============================================================ */
 .card, .stat, .form-embed, .empty, .schedule li, .policy-row { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
@@ -508,12 +510,12 @@ p:last-child { margin-bottom: 0; }
 
 /* ============================================================
    名前の見せ方(ビラと同じ「そごう陽之助」)
-   白い太字に濃い朱色の縁取り。名のふりがなは黄色
+   白い太字に濃い青の縁取り。名のふりがなは黄色
    ============================================================ */
-.hero-name { display: flex; align-items: flex-end; flex-wrap: nowrap; margin: 0; line-height: 1.05; font-weight: 900; color: var(--white); font-size: clamp(3.25rem, 7.3vw, 6.6rem); letter-spacing: 0.02em; white-space: nowrap; -webkit-text-stroke: 0.09em #9a1f00; paint-order: stroke fill; text-shadow: 0 0.07em 0 #7c1800, 0 0.12em 0.25em rgb(60 10 0 / 0.45); }
+.hero-name { display: flex; align-items: flex-end; flex-wrap: nowrap; margin: 0; line-height: 1.05; font-weight: 900; color: var(--white); font-size: clamp(3.25rem, 7.3vw, 6.6rem); letter-spacing: 0.02em; white-space: nowrap; -webkit-text-stroke: 0.09em #27428a; paint-order: stroke fill; text-shadow: 0 0.07em 0 #1f3570, 0 0.12em 0.25em rgb(10 20 60 / 0.45); }
 .hero-name .sei { margin-right: 0.06em; }
 .hero-name .mei { ruby-position: over; ruby-align: space-around; }
-.hero-name rt { font-size: 0.24em; font-weight: 900; letter-spacing: 0.35em; color: var(--gold-bright); -webkit-text-stroke: 0.3em #9a1f00; paint-order: stroke fill; text-shadow: none; padding-bottom: 0.25em; }
+.hero-name rt { font-size: 0.24em; font-weight: 900; letter-spacing: 0.35em; color: var(--gold-bright); -webkit-text-stroke: 0.3em #27428a; paint-order: stroke fill; text-shadow: none; padding-bottom: 0.25em; }
 .hero-formal { margin: 1rem 0 0; font-size: clamp(1rem, 1.6vw, 1.25rem); font-weight: 800; letter-spacing: 0.14em; color: var(--white); }
 .hero-formal span { margin-left: 0.9em; font-size: 0.8em; font-weight: 700; letter-spacing: 0.25em; color: var(--gold-soft); }
 .hero-rule { margin-top: 1.1rem; }
